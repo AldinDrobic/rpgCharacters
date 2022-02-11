@@ -9,13 +9,21 @@ namespace rpgCharacters.Models
     public abstract class Item
     {
         string ItemName;
-        string ItemLvl;   
+        int ItemLvl;
+        string ItemSlot;
         public enum Slot
         {
             SLOT_HEAD,
             SLOT_BODY,
             SLOT_LEGS,
             SLOT_WEAPON
+        }
+
+        public Item(string itemName, int itemLvl, string itemSlot)
+        {
+            this.ItemName = itemName;
+            this.ItemLvl = itemLvl;
+            this.ItemSlot = itemSlot;
         }
 
     }
