@@ -1,4 +1,5 @@
 ﻿using rpgCharacters.Models;
+using rpgCharacters.Models.Exceptions;
 using System;
 
 namespace rpgCharacters
@@ -7,8 +8,6 @@ namespace rpgCharacters
     {
         static void Main(string[] args)
         {
-
-      
 
         }
     }
