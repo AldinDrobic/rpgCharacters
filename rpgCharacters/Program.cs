@@ -1,4 +1,5 @@
-﻿using System;
+﻿using rpgCharacters.Models;
+using System;
 
 namespace rpgCharacters
 {
@@ -7,6 +8,8 @@ namespace rpgCharacters
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+
         }
     }
 }

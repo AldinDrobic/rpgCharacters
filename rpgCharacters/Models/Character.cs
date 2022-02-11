@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace rpgCharacters.Models
 {
-    abstract class Character
+    public abstract class Character
     {
-        string name;
-        int lvl;
-        int basePrimaryAttributes;
-        int totalPrimaryAttributes;
+        string Name;
+        int Lvl = 1;
+        int Strength;
+        int Dexterity;
+        int Intelligence;
+        int TotalPrimaryAttributes;
 
         #region Equip weapon
         /// <summary>
@@ -39,5 +41,6 @@ namespace rpgCharacters.Models
         }
 
         #endregion
+
     }
 }
