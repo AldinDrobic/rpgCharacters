@@ -10,6 +10,13 @@ namespace rpgCharacters.Models
     {
         string ItemName;
         string ItemLvl;   
+        public enum Slot
+        {
+            SLOT_HEAD,
+            SLOT_BODY,
+            SLOT_LEGS,
+            SLOT_WEAPON
+        }
 
     }
 }
