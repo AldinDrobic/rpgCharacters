@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace rpgCharacters.Models.Items
 {
-    public enum WeaponTypes
+    public enum ArmorType
     {
-        AXE,
-        BOW,
-        DAGGER,
-        HAMMER,
-        STAFF,
-        SWORD,
-        WAND   
+        CLOTH,
+        LEATHER,
+        MAIL,
+        PLATE
     }
 }
