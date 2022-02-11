@@ -10,16 +10,7 @@ namespace rpgCharacters.Models
     {
 
         Enum WeaponType;
-        public enum Weapons
-        {
-            Axe,
-            Bow,
-            Dagger,
-            Hammer,
-            Staff,
-            Sword,
-            Wand
-        }
+        
 
         public Weapon(string itemName, int itemLvl, Enum itemSlot, Enum weaponType) 
             :base(itemName, itemLvl, itemSlot)
