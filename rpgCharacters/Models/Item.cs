@@ -10,7 +10,7 @@ namespace rpgCharacters.Models
     {
         string ItemName;
         int ItemLvl;
-        string ItemSlot;
+        Enum ItemSlot;
         public enum Slot
         {
             SLOT_HEAD,
@@ -19,7 +19,7 @@ namespace rpgCharacters.Models
             SLOT_WEAPON
         }
 
-        public Item(string itemName, int itemLvl, string itemSlot)
+        public Item(string itemName, int itemLvl, Enum itemSlot)
         {
             this.ItemName = itemName;
             this.ItemLvl = itemLvl;
