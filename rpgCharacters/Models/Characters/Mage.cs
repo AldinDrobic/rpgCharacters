@@ -19,5 +19,10 @@ namespace rpgCharacters.Models.Characters
 
 
         }
+
+        public override void EquipWeapon(WeaponTypes weapon, List<WeaponTypes> allowedWeapons)
+        {
+
+        }
     }
 }
