@@ -37,26 +37,8 @@ namespace rpgCharacters.Models
         /// </summary>
         /// <param name="weapon">This is an enum from the weapon object, could be eg. an axe</param>
         /// <param name="allowedWeapons">This list contains weapons allowed by a specific class</param>
-        public virtual void EquipWeapon(WeaponTypes weapon, List<WeaponTypes> WeaponTypes)
-        {
-            try
-            {
-                //Du måste ha objektet vapen här. Du måste skicka in ett helt vapen objekt till denna metod.
-                if (weapon == WeaponTypes[1])
-                {
-                    Console.WriteLine("You can equip this weapon");
-                }
-                
-            }
-            catch (InvalidWeaponException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+        //public abstract void EquipWeapon(Weapon weapon);
 
-            //Check if weapon is allowed by char class
-            //Check if char lvl is high enough to equip weapon
-            
-        }
         #endregion
 
 

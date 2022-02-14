@@ -11,18 +11,17 @@ namespace rpgCharacters
     {
         static void Main(string[] args)
         {
-            
-            
-            Weapon weapon = new Weapon("Axe", 1, ItemSlot.WEAPON, Models.Items.WeaponTypes.AXE);
 
-            Console.WriteLine(WeaponTypes.AXE);
+            Weapon weapon1 = new Weapon("STAFF", 1, ItemSlot.WEAPON, WeaponTypes.STAFF, 1, 1);
+            Weapon weapon = new Weapon("AXE", 1, ItemSlot.WEAPON, WeaponTypes.AXE, 1, 1);
+            Mage mage = new Mage("Aldin", 1, 1, 1);
 
-            string num = WeaponTypes.AXE.ToString();
 
-            if (WeaponTypes.DAGGER.ToString() == "DAGGER")
-            {
-                Console.WriteLine("Yes");
-            }
+            mage.EquipWeapon(weapon);
+
+            //weapons.Add(new WeaponTypes());
+
+
 
         }
     }

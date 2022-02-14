@@ -19,9 +19,12 @@ namespace rpgCharacters.Models
         /// <param name="itemLvl">Required level to use item</param>
         /// <param name="itemSlot">In which slot is item equipped, eg "Slot.Weapon"</param>
         /// <param name="weaponTypes">What type of weapon, eg. "Axe"</param>
-        public Weapon(string itemName, int itemLvl, ItemSlot itemSlot, WeaponTypes weaponTypes) 
+        public Weapon(string itemName, int itemLvl, ItemSlot itemSlot, WeaponTypes weaponTypes, double damage, double attackSpeed) 
             :base(itemName, itemLvl, itemSlot)
         {
+            this.WeaponType = weaponTypes;
+            this.Damage = damage;
+            this.AttackSpeed = attackSpeed;
         }
 
         /// <summary>
