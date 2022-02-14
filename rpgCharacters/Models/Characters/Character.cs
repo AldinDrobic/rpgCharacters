@@ -78,7 +78,22 @@ namespace rpgCharacters.Models
         /// <param name="itemName">The name of the item</param>
         public void setEquipments(ItemSlot itemSlot, string itemName)
         {
-            Equipments.Add(itemSlot, itemName);
+            try
+            {
+                if (Equipments.Keys.Contains(itemSlot))
+                {
+                    throw new InvalidItemException();
+
+                }
+                else
+                    Equipments.Add(itemSlot, itemName);
+            }
+            catch (InvalidItemException ex)
+            {
+
+                Console.WriteLine(ex);
+            }
+           
         }
         #endregion
         

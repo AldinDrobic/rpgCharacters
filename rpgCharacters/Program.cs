@@ -13,6 +13,7 @@ namespace rpgCharacters
         static void Main(string[] args)
         {
             TestMageData.testMage1.EquipWeapon(TestMageData.testMage1, TestWeaponData.getTestStaff());
+            TestMageData.testMage1.EquipWeapon(TestMageData.testMage1, TestWeaponData.getTestStaff());
             TestMageData.testMage1.EquipWeapon(TestMageData.testMage1, TestWeaponData.getTestBow());
         }
     }

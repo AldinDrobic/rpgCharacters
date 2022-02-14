@@ -39,8 +39,6 @@ namespace rpgCharacters.Models.Characters
             {              
                 if (CheckIfWeaponIsAllowed())
                 {
-                    ///Equip weapon
-                    Console.WriteLine("You can equip this weapon");
                     base.setEquipments(weapon.GetItemSlot(), weapon.getItemName());
                 }
                 else

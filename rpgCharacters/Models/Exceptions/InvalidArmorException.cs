@@ -14,6 +14,6 @@ namespace rpgCharacters.Models.Exceptions
         public InvalidArmorException(string message) : base(message)
         {
         }
-        public override string Message => "You can't equip that armor";
+        public override string Message => "You can't equip that armor!";
     }
 }

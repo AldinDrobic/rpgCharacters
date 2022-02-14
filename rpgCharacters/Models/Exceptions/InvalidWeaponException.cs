@@ -14,6 +14,6 @@ namespace rpgCharacters.Models.Exceptions
         public InvalidWeaponException(string message) : base(message)
         {
         }
-        public override string Message => "You can't equip that weapon";
+        public override string Message => "You can't equip that weapon!";
     }
 }
