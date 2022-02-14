@@ -12,8 +12,11 @@ namespace rpgCharacters.Models
         private string ItemName;
         private int ItemLvl;
         private ItemSlot ItemSlot;
-        
 
+        public Item()
+        {
+
+        }
         public Item(string itemName, int itemLvl, ItemSlot itemSlot)
         {
             this.ItemName = itemName;

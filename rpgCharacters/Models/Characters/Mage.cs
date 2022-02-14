@@ -23,22 +23,73 @@ namespace rpgCharacters.Models.Characters
 
         }
 
+        #region Getters
+  
+        #endregion
+
+        #region Equip weapon
         /// <summary>
         /// This method will try to equip a weapon if the weapon is allowed by this class.
         /// </summary>
-        /// <param name="weapon">This is the weapon that is trying to be equiped</param>
-        public void EquipWeapon(Weapon weapon, Mage mage)
+        /// <param name="mage">This is the created character</param>
+        /// <param name="weapon">This is the weapon that the character is trying to equip</param>
+        public void EquipWeapon(Mage mage, Weapon weapon)
+        {
+            try
+            {              
+                if (CheckIfWeaponIsAllowed())
+                {
+                    ///Equip weapon
+                    Console.WriteLine("You can equip this weapon");
+                    base.setEquipments(weapon.GetItemSlot(), weapon.getItemName());
+                }
+                else
+                {
+                    throw new InvalidWeaponException();
+                }
+
+                base.getEquipments();
+            }
+            catch (InvalidWeaponException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            #region Check if weapon is allowed
+            //Check if weapon is allowed
+            bool CheckIfWeaponIsAllowed()
+            {
+                //Search for the weapon in the weapons list
+                WeaponTypes newWeaponType = weapon.getWeaponType();               
+                if (WeaponsAllowed.Contains(newWeaponType) && weapon.getRequiredLvl() <= mage.getLvl())
+                {
+                    //If weapons is in the list, return true;
+                    return true;
+                }
+                else
+                return false;               
+            }
+
+            #endregion
+
+        }
+        #endregion
+
+        #region Equip Armor
+        public void EquipArmor(Mage mage, Weapon weapon)
         {
             try
             {
+
                 WeaponTypes newWeaponType = weapon.getWeaponType();
                 if (newWeaponType == WeaponsAllowed[0] && weapon.getRequiredLvl() <= mage.getLvl())
                 {
+                    ///Exuip weapon
                     Console.WriteLine("You can equip this weapon");
                 }
                 else
                 {
-                    Console.WriteLine("You can't equip this weapon");
+                    throw new InvalidWeaponException();
                 }
 
             }
@@ -47,7 +98,7 @@ namespace rpgCharacters.Models.Characters
                 Console.WriteLine(ex.Message);
             }
 
-            //Check if char lvl is high enough to equip weapon
         }
+        #endregion
     }
 }
