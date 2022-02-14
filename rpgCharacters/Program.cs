@@ -1,7 +1,9 @@
 ﻿using rpgCharacters.Models;
+using rpgCharacters.Models.Characters;
 using rpgCharacters.Models.Exceptions;
 using rpgCharacters.Models.Items;
 using System;
+using System.Collections.Generic;
 
 namespace rpgCharacters
 {
@@ -21,6 +23,7 @@ namespace rpgCharacters
             {
                 Console.WriteLine("Yes");
             }
+
         }
     }
 }

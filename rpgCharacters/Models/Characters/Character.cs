@@ -15,16 +15,20 @@ namespace rpgCharacters.Models
         private PrimaryAttributes BasePrimaryAttributes;
         private PrimaryAttributes TotalPrimaryAttributes;
         private Dictionary<ItemSlot, Item> Equipments;
-        private List<string> WeaponsAllowed;
-        private List<string> ArmorsAllowed;
-        public Character(string name, int lvl, int strength, int dexterity, int intelligence, List<string> weaponsAllowed, List<string>armorsAllowed)
+
+        //public Character(string name, int strength, int dexterity, int intelligence, List<string> weaponsAllowed, List<string>armorsAllowed)
+        //{
+        //    this.Name = name;
+        //    this.BasePrimaryAttributes = new PrimaryAttributes(strength, dexterity, intelligence);
+        //    this.TotalPrimaryAttributes = new PrimaryAttributes(strength, dexterity, intelligence);
+        //    this.WeaponsAllowed = weaponsAllowed;
+        //    this.ArmorsAllowed = armorsAllowed;
+        //}
+        public Character(string name, int strength, int dexterity, int intelligence)
         {
             this.Name = name;
-            this.Lvl = lvl;
             this.BasePrimaryAttributes = new PrimaryAttributes(strength, dexterity, intelligence);
             this.TotalPrimaryAttributes = new PrimaryAttributes(strength, dexterity, intelligence);
-            this.WeaponsAllowed = weaponsAllowed;
-            this.ArmorsAllowed = armorsAllowed;
         }
 
         #region Equip weapon
