@@ -10,33 +10,35 @@ namespace rpgCharacters.Models.Characters
 {
     public class Mage: Character
     {
-        //public List<ArmorType> ArmorsAllowed { get; set; }
-        //public List<WeaponTypes> WeaponsAllowed { get; set; }
 
-        public List<WeaponTypes> WeaponsAllowed = new List<WeaponTypes>();
+        private List<ArmorType> ArmorsAllowed = new List<ArmorType>();
+        private List<WeaponTypes> WeaponsAllowed = new List<WeaponTypes>();
         public Mage(string name, int strength, int dexterity, int intelligence)
             :base(name, strength, dexterity, intelligence)
         {
+            //Adding the allowed weapons & armors when object is instantiated
             WeaponsAllowed.Add(WeaponTypes.STAFF);
-            //ArmorsAllowed.Add(ArmorType.CLOTH);
-
+            WeaponsAllowed.Add(WeaponTypes.WAND);
+            ArmorsAllowed.Add(ArmorType.CLOTH);
 
         }
 
-        public void EquipWeapon(Weapon weapon)
+        /// <summary>
+        /// This method will try to equip a weapon if the weapon is allowed by this class.
+        /// </summary>
+        /// <param name="weapon">This is the weapon that is trying to be equiped</param>
+        public void EquipWeapon(Weapon weapon, Mage mage)
         {
             try
             {
                 WeaponTypes newWeaponType = weapon.getWeaponType();
-                //Du måste ha objektet vapen här. Du måste skicka in ett helt vapen objekt till denna metod.
-                if (newWeaponType == WeaponsAllowed[0])
+                if (newWeaponType == WeaponsAllowed[0] && weapon.getRequiredLvl() <= mage.getLvl())
                 {
                     Console.WriteLine("You can equip this weapon");
                 }
                 else
                 {
                     Console.WriteLine("You can't equip this weapon");
-
                 }
 
             }
@@ -45,7 +47,6 @@ namespace rpgCharacters.Models.Characters
                 Console.WriteLine(ex.Message);
             }
 
-            //Check if weapon is allowed by char class
             //Check if char lvl is high enough to equip weapon
         }
     }

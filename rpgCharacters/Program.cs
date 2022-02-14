@@ -12,8 +12,8 @@ namespace rpgCharacters
     {
         static void Main(string[] args)
         {
-            TestMageData.testMage1.EquipWeapon(TestWeaponData.getTestStaff());
-            TestMageData.testMage1.EquipWeapon(TestWeaponData.getTestBow());
+            TestMageData.testMage1.EquipWeapon(TestWeaponData.getTestStaff(), TestMageData.testMage1);
+            TestMageData.testMage1.EquipWeapon(TestWeaponData.getTestBow(), TestMageData.testMage1);
         }
     }
 }

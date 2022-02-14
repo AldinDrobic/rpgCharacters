@@ -12,24 +12,51 @@ namespace rpgCharacters.Models
     {
         private string Name;
         private int Lvl = 1;
-        private PrimaryAttributes BasePrimaryAttributes;
-        private PrimaryAttributes TotalPrimaryAttributes;
+        private PrimaryAttributes PrimaryAttributes;
+        private double TotalAttributes;
         private Dictionary<ItemSlot, Item> Equipments;
 
-        //public Character(string name, int strength, int dexterity, int intelligence, List<string> weaponsAllowed, List<string>armorsAllowed)
-        //{
-        //    this.Name = name;
-        //    this.BasePrimaryAttributes = new PrimaryAttributes(strength, dexterity, intelligence);
-        //    this.TotalPrimaryAttributes = new PrimaryAttributes(strength, dexterity, intelligence);
-        //    this.WeaponsAllowed = weaponsAllowed;
-        //    this.ArmorsAllowed = armorsAllowed;
-        //}
         public Character(string name, int strength, int dexterity, int intelligence)
         {
             this.Name = name;
-            this.BasePrimaryAttributes = new PrimaryAttributes(strength, dexterity, intelligence);
-            this.TotalPrimaryAttributes = new PrimaryAttributes(strength, dexterity, intelligence);
+            this.PrimaryAttributes = new PrimaryAttributes(strength, dexterity, intelligence);
         }
+
+        #region Getters
+        /// <summary>
+        /// Get character name
+        /// </summary>
+        /// <returns></returns>
+        public string getName()
+        {
+            return Name;
+        }
+        /// <summary>
+        /// Get character lvl
+        /// </summary>
+        /// <returns></returns>
+        public int getLvl()
+        {
+            return Lvl;
+        }
+        /// <summary>
+        /// Get primary attributes
+        /// </summary>
+        /// <returns></returns>
+        public PrimaryAttributes GetPrimaryAttributes()
+        {
+            return PrimaryAttributes;
+        }
+        /// <summary>
+        /// Get total attributes
+        /// </summary>
+        /// <returns></returns>
+        public double getTotalAttributes()
+        {
+            return TotalAttributes;
+        }
+        #endregion
+
 
         #region Equip weapon
         /// <summary>
@@ -40,8 +67,6 @@ namespace rpgCharacters.Models
         //public abstract void EquipWeapon(Weapon weapon);
 
         #endregion
-
-
         #region Equip armor
         /// <summary>
         /// Checks if armor can be equiped by character
