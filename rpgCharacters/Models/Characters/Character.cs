@@ -16,6 +16,13 @@ namespace rpgCharacters.Models
         private double TotalAttributes;
         private Dictionary<ItemSlot, string> Equipments = new Dictionary<ItemSlot, string>();
 
+        /// <summary>
+        /// Constructor for instantiating objects
+        /// </summary>
+        /// <param name="name">Name of character</param>
+        /// <param name="strength">Characters strength</param>
+        /// <param name="dexterity">Characters dexterity</param>
+        /// <param name="intelligence">Characters intelligence</param>
         public Character(string name, int strength, int dexterity, int intelligence)
         {
             this.Name = name;
@@ -61,11 +68,6 @@ namespace rpgCharacters.Models
         /// <returns></returns>
         public Dictionary<ItemSlot, string> getEquipments()
         {
-            foreach (var item in Equipments)
-            {
-                Console.WriteLine(item.Key);
-                Console.WriteLine(item.Value);
-            }
             return Equipments;
         }
         #endregion
@@ -80,18 +82,17 @@ namespace rpgCharacters.Models
         {
             try
             {
+                //If the item slot is already taken, don't equip the item.
                 if (Equipments.Keys.Contains(itemSlot))
                 {
                     throw new InvalidItemException();
-
                 }
                 else
                     Equipments.Add(itemSlot, itemName);
             }
             catch (InvalidItemException ex)
             {
-
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
            
         }

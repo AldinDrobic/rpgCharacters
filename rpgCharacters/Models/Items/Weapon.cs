@@ -27,6 +27,7 @@ namespace rpgCharacters.Models
             this.AttackSpeed = attackSpeed;
         }
 
+        #region Return a weapon type
         /// <summary>
         /// Returns weapon type
         /// </summary>
@@ -35,6 +36,9 @@ namespace rpgCharacters.Models
         {
             return this.WeaponType;
         }
+        #endregion
+
+        #region Calculate DPS
         /// <summary>
         /// Calculates weapons damage and then returns damage.
         /// </summary>
@@ -43,6 +47,9 @@ namespace rpgCharacters.Models
         {
             return this.Damage * this.AttackSpeed;
         }
-       
+        #endregion
+
+
+
     }
 }

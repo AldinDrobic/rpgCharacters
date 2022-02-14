@@ -38,15 +38,9 @@ namespace rpgCharacters.Models.Characters
             try
             {              
                 if (CheckIfWeaponIsAllowed())
-                {
                     base.setEquipments(weapon.GetItemSlot(), weapon.getItemName());
-                }
                 else
-                {
                     throw new InvalidWeaponException();
-                }
-
-                base.getEquipments();
             }
             catch (InvalidWeaponException ex)
             {
@@ -54,16 +48,11 @@ namespace rpgCharacters.Models.Characters
             }
 
             #region Check if weapon is allowed
-            //Check if weapon is allowed
             bool CheckIfWeaponIsAllowed()
             {
-                //Search for the weapon in the weapons list
-                WeaponTypes newWeaponType = weapon.getWeaponType();               
-                if (WeaponsAllowed.Contains(newWeaponType) && weapon.getRequiredLvl() <= mage.getLvl())
-                {
-                    //If weapons is in the list, return true;
+                //Search for the weapon in the Mages list of allowed weapons             
+                if (WeaponsAllowed.Contains(weapon.getWeaponType()) && weapon.getRequiredLvl() <= mage.getLvl())              
                     return true;
-                }
                 else
                 return false;               
             }
@@ -74,27 +63,31 @@ namespace rpgCharacters.Models.Characters
         #endregion
 
         #region Equip Armor
-        public void EquipArmor(Mage mage, Weapon weapon)
+        public void EquipArmor(Mage mage, Armor armor)
         {
             try
             {
-
-                WeaponTypes newWeaponType = weapon.getWeaponType();
-                if (newWeaponType == WeaponsAllowed[0] && weapon.getRequiredLvl() <= mage.getLvl())
-                {
-                    ///Exuip weapon
-                    Console.WriteLine("You can equip this weapon");
-                }
+                if (CheckIfArmorIsAllowed())
+                    base.setEquipments(armor.GetItemSlot(), armor.getItemName());
                 else
-                {
-                    throw new InvalidWeaponException();
-                }
-
+                    throw new InvalidArmorException();
             }
             catch (InvalidWeaponException ex)
             {
                 Console.WriteLine(ex.Message);
             }
+
+            #region Check if armor is allowed
+            bool CheckIfArmorIsAllowed()
+            {
+                Console.WriteLine(armor.GetArmorType());
+                //Search for the armor in the Mages list of allowed armors 
+                if (ArmorsAllowed.Contains(armor.GetArmorType()) && armor.getRequiredLvl() <= mage.getLvl())
+                    return true;
+                else
+                    return false;
+            }
+            #endregion
 
         }
         #endregion
