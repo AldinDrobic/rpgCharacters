@@ -10,41 +10,41 @@ namespace rpgCharacters.Models
 {
     public abstract class Character
     {
-        private string Name;
-        private int Lvl = 1;
-        private PrimaryAttributes PrimaryAttributes;
-        private double TotalAttributes;
-        private Dictionary<ItemSlot, string> Equipments = new Dictionary<ItemSlot, string>();
+        private string _name;
+        private int _lvl = 1;
+        private PrimaryAttributes _primaryAttributes;
+        private double _totalAttributes;
+        private Dictionary<ItemSlot, string> _equipments = new Dictionary<ItemSlot, string>();
 
         /// <summary>
         /// Constructor for instantiating objects
         /// </summary>
-        /// <param name="name">Name of character</param>
-        /// <param name="strength">Characters strength</param>
-        /// <param name="dexterity">Characters dexterity</param>
-        /// <param name="intelligence">Characters intelligence</param>
+        /// <param _name="name">_name of character</param>
+        /// <param _name="strength">Characters strength</param>
+        /// <param _name="dexterity">Characters dexterity</param>
+        /// <param _name="intelligence">Characters intelligence</param>
         public Character(string name, int strength, int dexterity, int intelligence)
         {
-            this.Name = name;
-            this.PrimaryAttributes = new PrimaryAttributes(strength, dexterity, intelligence);
+            this._name = name;
+            this._primaryAttributes = new PrimaryAttributes(strength, dexterity, intelligence);
         }
 
         #region Getters
         /// <summary>
-        /// Get character name
+        /// Get character _name
         /// </summary>
         /// <returns></returns>
-        public string getName()
+        public string GetName()
         {
-            return Name;
+            return _name;
         }
         /// <summary>
-        /// Get character lvl
+        /// Get character _lvl
         /// </summary>
         /// <returns></returns>
-        public int getLvl()
+        public int GetLvl()
         {
-            return Lvl;
+            return _lvl;
         }
         /// <summary>
         /// Get primary attributes
@@ -52,23 +52,23 @@ namespace rpgCharacters.Models
         /// <returns></returns>
         public PrimaryAttributes GetPrimaryAttributes()
         {
-            return PrimaryAttributes;
+            return _primaryAttributes;
         }
         /// <summary>
         /// Get total attributes
         /// </summary>
         /// <returns></returns>
-        public double getTotalAttributes()
+        public double GetTotalAttributes()
         {
-            return TotalAttributes;
+            return _totalAttributes;
         }
         /// <summary>
         /// Get characters equipments
         /// </summary>
         /// <returns></returns>
-        public Dictionary<ItemSlot, string> getEquipments()
+        public Dictionary<ItemSlot, string> GetEquipments()
         {
-            return Equipments;
+            return _equipments;
         }
         #endregion
 
@@ -76,19 +76,19 @@ namespace rpgCharacters.Models
         /// <summary>
         /// Set items/equipements to character
         /// </summary>
-        /// <param name="itemSlot">The slot where the item is being putted</param>
-        /// <param name="itemName">The name of the item</param>
-        public void setEquipments(ItemSlot itemSlot, string itemName)
+        /// <param _name="itemSlot">The slot where the item is being putted</param>
+        /// <param _name="itemName">The _name of the item</param>
+        public void SetEquipments(ItemSlot itemSlot, string itemName)
         {
             try
             {
                 //If the item slot is already taken, don't equip the item.
-                if (Equipments.Keys.Contains(itemSlot))
+                if (_equipments.Keys.Contains(itemSlot))
                 {
                     throw new InvalidItemException();
                 }
                 else
-                    Equipments.Add(itemSlot, itemName);
+                    _equipments.Add(itemSlot, itemName);
             }
             catch (InvalidItemException ex)
             {
