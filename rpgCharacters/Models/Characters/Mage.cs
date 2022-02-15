@@ -51,7 +51,7 @@ namespace rpgCharacters.Models.Characters
             bool CheckIfWeaponIsAllowed()
             {
                 //Search for the weapon in the Mages list of allowed weapons             
-                if (_weaponsAllowed.Contains(weapon.getWeaponType()) && weapon.GetRequiredLvl() <= mage.GetLvl())              
+                if (_weaponsAllowed.Contains(weapon.GetWeaponType()) && weapon.GetRequiredLvl() <= mage.GetLvl())              
                     return true;
                 else
                 return false;               

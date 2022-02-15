@@ -9,9 +9,9 @@ namespace rpgCharacters.Models
 {
     public class Weapon : Item
     {
-        private WeaponTypes WeaponType;
-        private double Damage;
-        private double AttackSpeed;
+        private WeaponTypes _weaponType;
+        private double _damage;
+        private double _attackSpeed;
         /// <summary>
         /// Constructor to instantiate a object.
         /// </summary>
@@ -22,9 +22,9 @@ namespace rpgCharacters.Models
         public Weapon(string itemName, int itemLvl, ItemSlot itemSlot, WeaponTypes weaponTypes, double damage, double attackSpeed) 
             :base(itemName, itemLvl, itemSlot)
         {
-            this.WeaponType = weaponTypes;
-            this.Damage = damage;
-            this.AttackSpeed = attackSpeed;
+            this._weaponType = weaponTypes;
+            this._damage = damage;
+            this._attackSpeed = attackSpeed;
         }
 
         #region Return a weapon type
@@ -32,9 +32,9 @@ namespace rpgCharacters.Models
         /// Returns weapon type
         /// </summary>
         /// <returns></returns>
-        public WeaponTypes getWeaponType()
+        public WeaponTypes GetWeaponType()
         {
-            return this.WeaponType;
+            return this._weaponType;
         }
         #endregion
 
@@ -43,9 +43,9 @@ namespace rpgCharacters.Models
         /// Calculates weapons damage and then returns damage.
         /// </summary>
         /// <returns></returns>
-        public double getDPS()
+        public double GetDPS()
         {
-            return this.Damage * this.AttackSpeed;
+            return this._damage * this._attackSpeed;
         }
         #endregion
 
