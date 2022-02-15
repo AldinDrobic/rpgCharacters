@@ -19,31 +19,31 @@ namespace rpgCharacters.TestData
         private static Weapon Wand = new Weapon("Wand", 1, ItemSlot.WEAPON, WeaponTypes.WAND, 1, 1);
 
 
-        public static Weapon getTestAxe()
+        public static Weapon GetTestAxe()
         {
             return Axe;
         }
-        public static Weapon getTestBow()
+        public static Weapon GetTestBow()
         {
             return Bow;
         }
-        public static Weapon getTestDagger()
+        public static Weapon GetTestDagger()
         {
             return Dagger;
         }
-        public static Weapon getTestHammer()
+        public static Weapon GetTestHammer()
         {
             return Hammer;
         }
-        public static Weapon getTestStaff()
+        public static Weapon GetTestStaff()
         {
             return Staff;
         }
-        public static Weapon getTestSword()
+        public static Weapon GetTestSword()
         {
             return Sword;
         }
-        public static Weapon getTestWand()
+        public static Weapon GetTestWand()
         {
             return Wand;
         }

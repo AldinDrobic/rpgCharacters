@@ -15,15 +15,15 @@ namespace rpgCharacters.TestData.TestItems
         private static Armor clothLegs = new Armor("Cloth legs", 1, ItemSlot.LEGS, ArmorType.CLOTH);
 
         #region Getters
-        public static Armor getClotHelmet()
+        public static Armor GetClotHelmet()
         {
             return clothHelmet;
         }
-        public static Armor getClothArmor()
+        public static Armor GetClothArmor()
         {
             return clothArmor;
         }
-        public static Armor getClothLegs()
+        public static Armor GetClothLegs()
         {
             return clothLegs;
         }
@@ -38,15 +38,15 @@ namespace rpgCharacters.TestData.TestItems
         private static Armor leatherLegs = new Armor("Leather legs", 1, ItemSlot.LEGS, ArmorType.LEATHER);
 
         #region Getters
-        public static Armor getLeatherHelmet()
+        public static Armor GetLeatherHelmet()
         {
             return leatherHelmet;
         }
-        public static Armor getLeaterArmor()
+        public static Armor GetLeaterArmor()
         {
             return leatherArmor;
         }
-        public static Armor getLeatherLegs()
+        public static Armor GetLeatherLegs()
         {
             return leatherLegs;
         }
@@ -59,15 +59,15 @@ namespace rpgCharacters.TestData.TestItems
         private static Armor mailLegs = new Armor("Mail legs", 1, ItemSlot.LEGS, ArmorType.MAIL);
 
         #region Getters
-        public static Armor getHelmet()
+        public static Armor GetMailHelmet()
         {
             return mailHelmet;
         }
-        public static Armor getArmor()
+        public static Armor GetMailArmor()
         {
             return mailArmor;
         }
-        public static Armor getLegs()
+        public static Armor GetMailLegs()
         {
             return mailLegs;
         }
@@ -80,15 +80,15 @@ namespace rpgCharacters.TestData.TestItems
         private static Armor plateLegs = new Armor("Plate legs", 1, ItemSlot.LEGS, ArmorType.PLATE);
 
         #region Getters
-        public static Armor getPlateHelmet()
+        public static Armor GetPlateHelmet()
         {
             return plateHelmet;
         }
-        public static Armor getPlateArmor()
+        public static Armor GetPlateArmor()
         {
             return plateArmor;
         }
-        public static Armor getPlateLegs()
+        public static Armor GetPlateLegs()
         {
             return plateLegs;
         }

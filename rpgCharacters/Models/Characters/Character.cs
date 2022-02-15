@@ -2,11 +2,12 @@
 using rpgCharacters.Models.Items;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace rpgCharacters.Models
+namespace rpgCharacters.Models.Characters
 {
     public abstract class Character
     {
@@ -19,8 +20,19 @@ namespace rpgCharacters.Models
         /// <summary>
         /// Constructor for instantiating objects
         /// </summary>
+        /// <param name="strength">Characters strength</param>
+        /// <param name="dexterity">Characters dexterity</param>
+        /// <param name="intelligence">Characters intelligence</param>
+        public Character(int strength, int dexterity, int intelligence)
+        {
+            this._name = _GetRandomName();
+            this._primaryAttributes = new PrimaryAttributes(strength, dexterity, intelligence);
+        }
+        /// <summary>
+        /// Constructor for instantiating objects
+        /// </summary>
         /// <param _name="name">_name of character</param>
-        /// <param _name="Strength">Characters Strength</param>
+        /// <param _name="Strength">Characters strength</param>
         /// <param _name="dexterity">Characters dexterity</param>
         /// <param _name="intelligence">Characters intelligence</param>
         public Character(string name, int strength, int dexterity, int intelligence)
@@ -97,6 +109,44 @@ namespace rpgCharacters.Models
            
         }
         #endregion
-        
-    }
+
+        #region Random Names
+
+        private string _GetRandomName()
+        {
+            #region Create list of random names
+
+            List<string> _randomNames = new List<string>()
+            {
+                "Mnementh Beiroris",
+                "Haldir Ertris",
+                "Huethea Mirabalar",
+                "Gormar Genwynn",
+                "Nyvorlas Bryneiros",
+                "Drannor Keazeiros",
+                "Volodar Inagella",
+                "Rathal Elaran",
+                "Hagred Qixalim",
+                "Drannor Zyljor",
+                "Hagluin Yllaphine",
+                "Inchel Trawynn",
+                "Paeris Virhana",
+                "Katyr Dorbella",
+                "Malon Farzumin",
+                "Liluth Jorieth",
+                "Ettrian Liabella",
+                "Shyrrik Wysahice",
+                "Amra Loraxisys",
+                "Sakaala Lorana"
+
+            };
+            Random rnd = new Random();
+            string randomName = _randomNames[rnd.Next(0, 21)];
+
+            #endregion
+            return randomName;
+        }
+    #endregion
+
+}
 }

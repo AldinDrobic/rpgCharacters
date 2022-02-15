@@ -13,6 +13,28 @@ namespace rpgCharacters.Models.Characters
 
         private List<ArmorType> _armorsAllowed = new List<ArmorType>();
         private List<WeaponTypes> _weaponsAllowed = new List<WeaponTypes>();
+
+        /// <summary>
+        /// Constructor for instantiating new objects
+        /// </summary>
+        /// <param name="strength">Characters strength</param>
+        /// <param name="dexterity">Characters dexterity</param>
+        /// <param name="intelligence">Characters intelligence</param>
+        public Mage(int strength, int dexterity, int intelligence)
+            : base(strength, dexterity, intelligence)
+        {
+            //Adding the allowed weapons & armors when object is instantiated
+            _weaponsAllowed.Add(WeaponTypes.STAFF);
+            _weaponsAllowed.Add(WeaponTypes.WAND);
+            _armorsAllowed.Add(ArmorType.CLOTH);
+        }
+        /// <summary>
+        /// Constructor for instantiating new objects
+        /// </summary>
+        /// <param name="name">Name of character</param>
+        /// <param name="strength">Characters strength</param>
+        /// <param name="dexterity">Characters dexterity</param>
+        /// <param name="intelligence">Characters intelligence</param>
         public Mage(string name, int strength, int dexterity, int intelligence)
             :base(name, strength, dexterity, intelligence)
         {
@@ -20,7 +42,6 @@ namespace rpgCharacters.Models.Characters
             _weaponsAllowed.Add(WeaponTypes.STAFF);
             _weaponsAllowed.Add(WeaponTypes.WAND);
             _armorsAllowed.Add(ArmorType.CLOTH);
-
         }
 
         #region Getters
@@ -72,7 +93,7 @@ namespace rpgCharacters.Models.Characters
                 else
                     throw new InvalidArmorException();
             }
-            catch (InvalidWeaponException ex)
+            catch (InvalidArmorException ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -80,7 +101,6 @@ namespace rpgCharacters.Models.Characters
             #region Check if armor is allowed
             bool CheckIfArmorIsAllowed()
             {
-                Console.WriteLine(armor.GetArmorType());
                 //Search for the armor in the Mages list of allowed armors 
                 if (_armorsAllowed.Contains(armor.GetArmorType()) && armor.GetRequiredLvl() <= mage.GetLvl())
                     return true;
