@@ -213,7 +213,9 @@ namespace rpgCharacters.Models.Characters
             this._primaryAttributes.Strength += strength;
             this._primaryAttributes.Dexterity += dexterity;
             this._primaryAttributes.Intelligence += intelligence;
+            this._mainAttribute = CheckForCharacterClass();
             this._lvl++;
+            SetCharacterDamage();
         }
         /// <summary>
         /// Method used to deal damage with character
@@ -222,6 +224,22 @@ namespace rpgCharacters.Models.Characters
         {
             double damage = GetCharacterDamage();
             Console.WriteLine($"You successfully dealt {damage} damage to your opponent!");
+        }
+        /// <summary>
+        /// Check the character class to determine which attribute is the main attribute,
+        /// eg. Mage => Intelligence
+        /// </summary>
+        /// <returns></returns>
+        public int CheckForCharacterClass()
+        {
+            return _characterType switch
+            {
+                CharacterTypes.Mage => GetPrimaryAttributes().Intelligence,
+                CharacterTypes.Ranger => GetPrimaryAttributes().Dexterity,
+                CharacterTypes.Rouge => GetPrimaryAttributes().Dexterity,
+                CharacterTypes.Warrior => GetPrimaryAttributes().Strength,
+                _ => 0,
+            };
         }
         /// <summary>
         /// ToString method used for printing out objects

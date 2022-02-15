@@ -15,7 +15,17 @@ namespace rpgCharacters
         static void Main(string[] args)
         {
 
+            Mage mage = new Mage();
 
+            Console.WriteLine(mage);
+
+            mage.EquipWeapon(mage, TestWeaponData.GetTestStaff());
+
+            Console.WriteLine(mage);
+
+            mage.CharacterLvlUp();
+
+            Console.WriteLine(mage);
 
 
         }
