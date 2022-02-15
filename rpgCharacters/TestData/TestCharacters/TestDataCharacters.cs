@@ -9,40 +9,46 @@ namespace rpgCharacters.TestData.TestCharacters
 {
     public static class TestDataCharacters
     {
-        
+        public static Mage mage = new Mage();
+        public static Ranger ranger = new Ranger();
+        public static Rouge rouge = new Rouge();
+        public static Warrior warrior = new Warrior();
+
+
+
 
         #region Mage data
-        public static void MageData()
-        {
-            Mage mage = new Mage();
-            Console.WriteLine(mage);
-        }
+        public static void PrintMageData() {Console.WriteLine(mage);}
+        public static void IncreaseMageLvl() {mage.CharacterLvlUp();}
         #endregion
+
+
+
 
         #region Ranger data
-        public static void RangerData()
-        {
-            Ranger ranger = new Ranger();
-            Console.WriteLine(ranger);
-        }
-
-
+        public static void PrintRangerData(){ Console.WriteLine(ranger);}
+        public static void IncreaseRangerLvl() { ranger.CharacterLvlUp();}
         #endregion
+
+
+
+
+
+
+
 
         #region Rouge Data
-        public static void RougeData()
-        {
-            Rouge rouge = new Rouge();
-            Console.WriteLine(rouge);
-        }
+        public static void PrintRougeData(){Console.WriteLine(rouge);}
+        public static void IncreaseRougeLvl(){rouge.CharacterLvlUp();}
         #endregion
 
+
+
+
+
         #region Warrior Data
-        public static void WarriorData()
-        {
-            Warrior warrior = new Warrior();
-            Console.WriteLine(warrior);
-        }
+        public static void PrintWarriorData(){ Console.WriteLine(warrior);}
+        public static void IncreaseWarriorLvl(){ warrior.CharacterLvlUp();}
         #endregion
     }
 }

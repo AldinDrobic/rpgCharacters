@@ -94,6 +94,14 @@ namespace rpgCharacters.Models.Characters
             }
             return this._damage;
         }
+        /// <summary>
+        /// Return the equipped weapon
+        /// </summary>
+        /// <returns></returns>
+        public Weapon GetWeapon()
+        {
+            return this._weapon;
+        }
 
 
         #endregion
@@ -111,9 +119,20 @@ namespace rpgCharacters.Models.Characters
                 //If the item slot is already taken, don't equip the item.
                 if (_equipments.Keys.Contains(itemSlot))
                 {
-                    throw new InvalidItemException();
+                    Console.WriteLine($"You already have a {itemSlot} equipped, " +
+                                      $"do you want to replace it? (y/n)");
+                    if (Console.ReadLine() == "y")
+                    {
+                        //Equip armor
+                        this._equipments[itemSlot] = itemName;
+                        Console.WriteLine($"You successfully equipped a {itemName}");
+                    }
                 }
-                this._equipments.Add(itemSlot, itemName);
+                else
+                {
+                    this._equipments.Add(itemSlot, itemName);
+                    Console.WriteLine($"You successfully equipped a {itemName}");
+                }
             }
             catch (InvalidItemException ex)
             {
@@ -201,7 +220,6 @@ namespace rpgCharacters.Models.Characters
         #endregion
 
         #region Other methods
-
         /// <summary>
         /// This method will increase character lvl
         /// </summary>
@@ -255,7 +273,6 @@ namespace rpgCharacters.Models.Characters
                    $"Intelligence: {this._primaryAttributes.Intelligence}\n" +
                    $"Damage: {this._damage}\n";
         }
-
         #endregion
 
         #region Random Names
