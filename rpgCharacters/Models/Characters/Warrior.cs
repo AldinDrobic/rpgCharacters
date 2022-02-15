@@ -59,12 +59,13 @@ namespace rpgCharacters.Models.Characters
         /// </summary>
         /// <param name="warrior">This is the created character</param>
         /// <param name="weapon">This is the weapon that the character is trying to equip</param>
-        public void EquipWeapon(Warrior warrior, Weapon weapon)
+        public string EquipWeapon(Warrior warrior, Weapon weapon)
         {
+            string equippedWeaponMessage = "";
             try
             {
                 if (CheckIfWeaponIsAllowed())
-                    base.SetWeaponIntoEquipments(weapon, warrior.GetPrimaryAttributes().Strength);
+                    equippedWeaponMessage = base.SetWeaponIntoEquipments(weapon, warrior.GetPrimaryAttributes().Strength);
                 else
                     throw new InvalidWeaponException();
             }
@@ -73,6 +74,7 @@ namespace rpgCharacters.Models.Characters
                 Console.WriteLine(ex.Message);
             }
 
+            return equippedWeaponMessage;
             #region Check if weapon is allowed
             bool CheckIfWeaponIsAllowed()
             {
@@ -91,12 +93,13 @@ namespace rpgCharacters.Models.Characters
         /// <summary>
         /// This method will try to equip a armor if it is allowed by the class
         /// </summary>
-        public void EquipArmor(Warrior warrior, Armor armor)
+        public string EquipArmor(Warrior warrior, Armor armor)
         {
+            string equippedArmorMessage = "";
             try
             {
                 if (CheckIfArmorIsAllowed())
-                    base.SetArmorIntoEquipments(armor.GetItemSlot(), armor.GetItemName());
+                    equippedArmorMessage = base.SetArmorIntoEquipments(armor.GetItemSlot(), armor.GetItemName());
                 else
                     throw new InvalidArmorException();
             }
@@ -104,7 +107,7 @@ namespace rpgCharacters.Models.Characters
             {
                 Console.WriteLine(ex.Message);
             }
-
+            return equippedArmorMessage;
             #region Check if armor is allowed
             bool CheckIfArmorIsAllowed()
             {

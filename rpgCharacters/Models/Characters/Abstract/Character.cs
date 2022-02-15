@@ -112,7 +112,7 @@ namespace rpgCharacters.Models.Characters
         /// </summary>
         /// <param _name="itemSlot">The slot where the item is being putted</param>
         /// <param _name="itemName">The _name of the item</param>
-        public void SetArmorIntoEquipments(ItemSlot itemSlot, string itemName)
+        public string SetArmorIntoEquipments(ItemSlot itemSlot, string itemName)
         {
             try
             {
@@ -125,20 +125,21 @@ namespace rpgCharacters.Models.Characters
                     {
                         //Equip armor
                         this._equipments[itemSlot] = itemName;
-                        Console.WriteLine($"You successfully equipped a {itemName}");
+                        return _armorEquipped(itemName);
                     }
                 }
                 else
                 {
                     this._equipments.Add(itemSlot, itemName);
-                    Console.WriteLine($"You successfully equipped a {itemName}");
+                    return _armorEquipped(itemName);
                 }
             }
             catch (InvalidItemException ex)
             {
                 Console.WriteLine(ex.Message);
             }
-           
+
+            return null;
         }
         /// <summary>
         /// Set a weapon to the character
@@ -153,7 +154,7 @@ namespace rpgCharacters.Models.Characters
         /// </summary>
         /// <param name="weapon">The weapon character is trying to equip</param>
         /// <param name="primaryAttribute">Value which is used for increasing characters damage</param>
-        public void SetWeaponIntoEquipments(Weapon weapon, double primaryAttribute)
+        public string SetWeaponIntoEquipments(Weapon weapon, double primaryAttribute)
         {
             try
             {
@@ -168,7 +169,7 @@ namespace rpgCharacters.Models.Characters
                         _SetWeapon(weapon);
                         this._equipments[weapon.GetItemSlot()] = weapon.GetItemName();
                         SetCharacterDamage();
-                        Console.WriteLine($"You successfully equipped a {weapon.GetItemName()}");
+                        return _weaponEquipped(weapon.GetItemName());
                     }
                 }
 
@@ -177,13 +178,14 @@ namespace rpgCharacters.Models.Characters
                     _SetWeapon(weapon);
                     this._equipments.Add(weapon.GetItemSlot(), weapon.GetItemName());
                     SetCharacterDamage();
-                    Console.WriteLine($"You successfully equipped a {weapon.GetItemName()}");
+                    return _weaponEquipped(weapon.GetItemName());
                 }
             }
             catch (InvalidItemException ex)
             {
                 Console.WriteLine(ex.Message);
             }
+            return null;
 
         }
 
@@ -272,6 +274,24 @@ namespace rpgCharacters.Models.Characters
                 CharacterTypes.Warrior => GetPrimaryAttributes().Strength,
                 _ => 0,
             };
+        }
+        /// <summary>
+        /// Will return string with the equipped armor
+        /// </summary>
+        /// <param name="armorName">Name of armor</param>
+        /// <returns></returns>
+        private string _armorEquipped(string armorName)
+        {
+            return $"You successfully equipped a {armorName}";
+        }
+        /// <summary>
+        /// Will return string with the equipped weapon
+        /// </summary>
+        /// <param name="weaponName">Name of weapon</param>
+        /// <returns></returns>
+        private string _weaponEquipped(string weaponName)
+        {
+            return $"You successfully equipped a {weaponName}";
         }
         /// <summary>
         /// ToString method used for printing out objects

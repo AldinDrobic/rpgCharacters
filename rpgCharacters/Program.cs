@@ -43,14 +43,18 @@ namespace rpgCharacters
                 new WeaponAttributes(20, 2));
             Weapon regularAxe = new Weapon("Regular axe", 1, ItemSlot.WEAPON, WeaponTypes.AXE,
                 new WeaponAttributes(1, 1));
+            Weapon longBow = new Weapon("Long bow", 1, ItemSlot.WEAPON, WeaponTypes.BOW, 
+                new WeaponAttributes(1, 1));
 
-            Armor plateArmor = new Armor("Plate armor", 1, ItemSlot.BODY, ArmorType.PLATE);
+            Armor plateArmor = new Armor("Plate armor", 2, ItemSlot.BODY, ArmorType.PLATE);
             Armor mailArmor = new Armor("Mail armor", 1, ItemSlot.BODY, ArmorType.MAIL);
+            Armor clothArmor = new Armor("Cloth armor", 1, ItemSlot.BODY, ArmorType.CLOTH);
 
-            TestDataCharacters.warrior.EquipWeapon(TestDataCharacters.warrior, fireAxe);
-            TestDataCharacters.warrior.EquipWeapon(TestDataCharacters.warrior, regularAxe);
             TestDataCharacters.warrior.EquipArmor(TestDataCharacters.warrior, mailArmor);
-            TestDataCharacters.warrior.EquipArmor(TestDataCharacters.warrior, plateArmor);
+            TestDataCharacters.warrior.EquipWeapon(TestDataCharacters.warrior, longBow);
+            TestDataCharacters.warrior.EquipArmor(TestDataCharacters.warrior, clothArmor);
+
+
 
 
 
