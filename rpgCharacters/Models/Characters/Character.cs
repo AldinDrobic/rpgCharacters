@@ -20,7 +20,7 @@ namespace rpgCharacters.Models
         /// Constructor for instantiating objects
         /// </summary>
         /// <param _name="name">_name of character</param>
-        /// <param _name="strength">Characters strength</param>
+        /// <param _name="Strength">Characters Strength</param>
         /// <param _name="dexterity">Characters dexterity</param>
         /// <param _name="intelligence">Characters intelligence</param>
         public Character(string name, int strength, int dexterity, int intelligence)
