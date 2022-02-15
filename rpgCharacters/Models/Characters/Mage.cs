@@ -38,7 +38,7 @@ namespace rpgCharacters.Models.Characters
             try
             {              
                 if (CheckIfWeaponIsAllowed())
-                    base.SetEquipments(weapon.GetItemSlot(), weapon.getItemName());
+                    base.SetEquipments(weapon.GetItemSlot(), weapon.GetItemName());
                 else
                     throw new InvalidWeaponException();
             }
@@ -51,7 +51,7 @@ namespace rpgCharacters.Models.Characters
             bool CheckIfWeaponIsAllowed()
             {
                 //Search for the weapon in the Mages list of allowed weapons             
-                if (_weaponsAllowed.Contains(weapon.getWeaponType()) && weapon.getRequiredLvl() <= mage.GetLvl())              
+                if (_weaponsAllowed.Contains(weapon.getWeaponType()) && weapon.GetRequiredLvl() <= mage.GetLvl())              
                     return true;
                 else
                 return false;               
@@ -68,7 +68,7 @@ namespace rpgCharacters.Models.Characters
             try
             {
                 if (CheckIfArmorIsAllowed())
-                    base.SetEquipments(armor.GetItemSlot(), armor.getItemName());
+                    base.SetEquipments(armor.GetItemSlot(), armor.GetItemName());
                 else
                     throw new InvalidArmorException();
             }
@@ -82,7 +82,7 @@ namespace rpgCharacters.Models.Characters
             {
                 Console.WriteLine(armor.GetArmorType());
                 //Search for the armor in the Mages list of allowed armors 
-                if (_armorsAllowed.Contains(armor.GetArmorType()) && armor.getRequiredLvl() <= mage.GetLvl())
+                if (_armorsAllowed.Contains(armor.GetArmorType()) && armor.GetRequiredLvl() <= mage.GetLvl())
                     return true;
                 else
                     return false;
