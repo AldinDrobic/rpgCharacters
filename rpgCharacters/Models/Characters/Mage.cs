@@ -14,6 +14,16 @@ namespace rpgCharacters.Models.Characters
         private List<ArmorType> _armorsAllowed = new List<ArmorType>();
         private List<WeaponTypes> _weaponsAllowed = new List<WeaponTypes>();
 
+        #region Constructors
+
+        /// <summary>
+        /// Constructor to create a standard mage object
+        /// </summary>
+        public Mage()
+        {
+            base.SetPrimaryAttributes(1, 1, 8);
+            AddAllowedArmorsWeapons();
+        }
         /// <summary>
         /// Constructor for instantiating new objects
         /// </summary>
@@ -23,10 +33,7 @@ namespace rpgCharacters.Models.Characters
         public Mage(int strength, int dexterity, int intelligence)
             : base(strength, dexterity, intelligence)
         {
-            //Adding the allowed weapons & armors when object is instantiated
-            _weaponsAllowed.Add(WeaponTypes.STAFF);
-            _weaponsAllowed.Add(WeaponTypes.WAND);
-            _armorsAllowed.Add(ArmorType.CLOTH);
+            AddAllowedArmorsWeapons();
         }
         /// <summary>
         /// Constructor for instantiating new objects
@@ -36,16 +43,28 @@ namespace rpgCharacters.Models.Characters
         /// <param name="dexterity">Characters dexterity</param>
         /// <param name="intelligence">Characters intelligence</param>
         public Mage(string name, int strength, int dexterity, int intelligence)
-            :base(name, strength, dexterity, intelligence)
+            : base(name, strength, dexterity, intelligence)
         {
-            //Adding the allowed weapons & armors when object is instantiated
-            _weaponsAllowed.Add(WeaponTypes.STAFF);
-            _weaponsAllowed.Add(WeaponTypes.WAND);
-            _armorsAllowed.Add(ArmorType.CLOTH);
+            AddAllowedArmorsWeapons();
         }
 
+        #endregion
+
+        #region Allowed armors & weapons
+
+        /// <summary>
+        /// Will fill list with allowed armors and weapon that mage can equip
+        /// </summary>
+        private void AddAllowedArmorsWeapons()
+        {
+            _armorsAllowed.Add(ArmorType.CLOTH);
+            _weaponsAllowed.Add(WeaponTypes.STAFF);
+            _weaponsAllowed.Add(WeaponTypes.WAND);
+        }
+        #endregion
+
         #region Getters
-  
+
         #endregion
 
         #region Equip weapon
@@ -59,7 +78,7 @@ namespace rpgCharacters.Models.Characters
             try
             {              
                 if (CheckIfWeaponIsAllowed())
-                    base.SetEquipments(weapon.GetItemSlot(), weapon.GetItemName());
+                    base.SetWeaponIntoEquipments(weapon, mage.GetPrimaryAttributes().Strength);
                 else
                     throw new InvalidWeaponException();
             }

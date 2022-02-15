@@ -31,8 +31,13 @@ namespace rpgCharacters
 
             Mage mage = new Mage(1, 1, 1);
 
+            mage.EquipWeapon(mage, TestWeaponData.GetTestStaff());
+
             Console.WriteLine(mage.GetName());
 
+           double damage =  mage.GetCharacterDamage();
+
+           Console.WriteLine(damage);
 
 
 
