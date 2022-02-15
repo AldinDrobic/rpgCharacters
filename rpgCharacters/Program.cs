@@ -22,7 +22,6 @@ namespace rpgCharacters
             //TestDataCharacters.PrintMageData();
 
 
-
             ////Ranger
             //TestDataCharacters.PrintRangerData();
             //TestDataCharacters.IncreaseRangerLvl();
@@ -49,6 +48,7 @@ namespace rpgCharacters
             Armor mailArmor = new Armor("Mail armor", 1, ItemSlot.BODY, ArmorType.MAIL);
 
             TestDataCharacters.warrior.EquipWeapon(TestDataCharacters.warrior, fireAxe);
+            TestDataCharacters.warrior.EquipWeapon(TestDataCharacters.warrior, regularAxe);
             TestDataCharacters.warrior.EquipArmor(TestDataCharacters.warrior, mailArmor);
             TestDataCharacters.warrior.EquipArmor(TestDataCharacters.warrior, plateArmor);
 

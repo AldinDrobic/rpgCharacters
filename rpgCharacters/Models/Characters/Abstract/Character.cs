@@ -158,21 +158,26 @@ namespace rpgCharacters.Models.Characters
             try
             {
                 //If the item slot is already taken, don't equip the item.
-                Console.WriteLine($"You already have a {weapon.GetItemSlot()} equipped, " +
-                                  $"do you want to replace it? (y/n)");
-                if (Console.ReadLine() == "y")
+                if (_equipments.Keys.Contains(weapon.GetItemSlot()))
                 {
-                    //Equip weapon
-                    _SetWeapon(weapon);
-                    this._equipments[weapon.GetItemSlot()] = weapon.GetItemName();
-                    SetCharacterDamage();
-                    Console.WriteLine($"You successfully equipped a {weapon.GetItemName()}");
+                    Console.WriteLine($"You already have a {weapon.GetItemSlot()} equipped, " +
+                                      $"do you want to replace it? (y/n)");
+                    if (Console.ReadLine() == "y")
+                    {
+                        //Equip weapon
+                        _SetWeapon(weapon);
+                        this._equipments[weapon.GetItemSlot()] = weapon.GetItemName();
+                        SetCharacterDamage();
+                        Console.WriteLine($"You successfully equipped a {weapon.GetItemName()}");
+                    }
                 }
+
                 else
                 {
                     _SetWeapon(weapon);
                     this._equipments.Add(weapon.GetItemSlot(), weapon.GetItemName());
                     SetCharacterDamage();
+                    Console.WriteLine($"You successfully equipped a {weapon.GetItemName()}");
                 }
             }
             catch (InvalidItemException ex)
