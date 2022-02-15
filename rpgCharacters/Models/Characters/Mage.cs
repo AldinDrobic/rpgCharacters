@@ -11,15 +11,15 @@ namespace rpgCharacters.Models.Characters
     public class Mage: Character
     {
 
-        private List<ArmorType> ArmorsAllowed = new List<ArmorType>();
-        private List<WeaponTypes> WeaponsAllowed = new List<WeaponTypes>();
+        private List<ArmorType> _armorsAllowed = new List<ArmorType>();
+        private List<WeaponTypes> _weaponsAllowed = new List<WeaponTypes>();
         public Mage(string name, int strength, int dexterity, int intelligence)
             :base(name, strength, dexterity, intelligence)
         {
             //Adding the allowed weapons & armors when object is instantiated
-            WeaponsAllowed.Add(WeaponTypes.STAFF);
-            WeaponsAllowed.Add(WeaponTypes.WAND);
-            ArmorsAllowed.Add(ArmorType.CLOTH);
+            _weaponsAllowed.Add(WeaponTypes.STAFF);
+            _weaponsAllowed.Add(WeaponTypes.WAND);
+            _armorsAllowed.Add(ArmorType.CLOTH);
 
         }
 
@@ -51,7 +51,7 @@ namespace rpgCharacters.Models.Characters
             bool CheckIfWeaponIsAllowed()
             {
                 //Search for the weapon in the Mages list of allowed weapons             
-                if (WeaponsAllowed.Contains(weapon.getWeaponType()) && weapon.getRequiredLvl() <= mage.GetLvl())              
+                if (_weaponsAllowed.Contains(weapon.getWeaponType()) && weapon.getRequiredLvl() <= mage.GetLvl())              
                     return true;
                 else
                 return false;               
@@ -82,7 +82,7 @@ namespace rpgCharacters.Models.Characters
             {
                 Console.WriteLine(armor.GetArmorType());
                 //Search for the armor in the Mages list of allowed armors 
-                if (ArmorsAllowed.Contains(armor.GetArmorType()) && armor.getRequiredLvl() <= mage.GetLvl())
+                if (_armorsAllowed.Contains(armor.GetArmorType()) && armor.getRequiredLvl() <= mage.GetLvl())
                     return true;
                 else
                     return false;
