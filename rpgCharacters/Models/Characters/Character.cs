@@ -15,7 +15,7 @@ namespace rpgCharacters.Models.Characters
         private int _lvl = 1;
         private PrimaryAttributes _primaryAttributes;
         private double _totalAttributes;
-        private double _damage;
+        private double _damage = 1;
         private Dictionary<ItemSlot, string> _equipments = new Dictionary<ItemSlot, string>();
 
         #region Constructors
@@ -92,7 +92,10 @@ namespace rpgCharacters.Models.Characters
         {
             return this._equipments;
         }
-
+        /// <summary>
+        /// Get total damage that character can inflict
+        /// </summary>
+        /// <returns></returns>
         public double GetCharacterDamage()
         {
             if (this._equipments.Count <=0)
@@ -107,11 +110,11 @@ namespace rpgCharacters.Models.Characters
 
         #region Setters
         /// <summary>
-        /// Set items/equipements to character
+        /// Set armors to characters equipment list
         /// </summary>
         /// <param _name="itemSlot">The slot where the item is being putted</param>
         /// <param _name="itemName">The _name of the item</param>
-        public void SetEquipments(ItemSlot itemSlot, string itemName)
+        public void SetArmorIntoEquipments(ItemSlot itemSlot, string itemName)
         {
             try
             {
@@ -120,13 +123,7 @@ namespace rpgCharacters.Models.Characters
                 {
                     throw new InvalidItemException();
                 }
-
                 this._equipments.Add(itemSlot, itemName);
-                if (itemSlot == ItemSlot.WEAPON)
-                {
-                    
-
-                }
             }
             catch (InvalidItemException ex)
             {
@@ -134,6 +131,11 @@ namespace rpgCharacters.Models.Characters
             }
            
         }
+        /// <summary>
+        /// Set weapon to characters equipment list
+        /// </summary>
+        /// <param name="weapon">The weapon character is trying to equip</param>
+        /// <param name="primaryAttribute">Value which is used for increasing characters damage</param>
         public void SetWeaponIntoEquipments(Weapon weapon, double primaryAttribute)
         {
             try
@@ -162,9 +164,7 @@ namespace rpgCharacters.Models.Characters
         /// <param name="intelligence">Characters intelligence</param>
         public void SetPrimaryAttributes(int strength, int dexterity, int intelligence)
         {
-            this._primaryAttributes.Strength = strength;
-            this._primaryAttributes.Dexterity = dexterity;
-            this._primaryAttributes.Intelligence = intelligence;
+            this._primaryAttributes = new PrimaryAttributes(strength, dexterity, intelligence);
 
             //Set total attributes
             this._totalAttributes = this._primaryAttributes.Strength + 
@@ -173,14 +173,46 @@ namespace rpgCharacters.Models.Characters
         }
 
         /// <summary>
-        /// Will set character damage
+        /// Set damage of the character
         /// </summary>
-        /// <param name="damageValue">The value that will increase damage</param>
+        /// <param name="weapon">The weapon that the character has equipped</param>
+        /// <param name="characterAttribute">The value that will increase damage</param>
         public void SetCharacterDamage(Weapon weapon, double characterAttribute)
         {
             this._damage = weapon.GetDPS() * (characterAttribute + _totalAttributes / 100);
         }
         #endregion
+
+        /// <summary>
+        /// This method will increase character lvl
+        /// </summary>
+        /// <param name="strength">Characters strength</param>
+        /// <param name="dexterity">Characters dexterity</param>
+        /// <param name="intelligence">Characters intelligence</param>
+        public void CharacterLvlUp(int strength, int dexterity, int intelligence)
+        {
+            this._primaryAttributes.Strength += strength;
+            this._primaryAttributes.Dexterity += dexterity;
+            this._primaryAttributes.Intelligence += intelligence;
+            this._lvl ++;
+        }
+
+        public void DealDamage()
+        {
+            double damage = GetCharacterDamage();
+            Console.WriteLine($"You successfully dealt {damage} damage to your opponent!");
+        }
+
+        public override string ToString()
+        {
+            return $"Name: {this._name}\n" +
+                   $"Level: {this._lvl}\n" +
+                   $"Strength: {this._primaryAttributes.Strength}\n" +
+                   $"Dexterity: {this._primaryAttributes.Dexterity}\n" +
+                   $"Intelligence: {this._primaryAttributes.Intelligence}\n" +
+                   $"Damage: {this._damage}\n";
+        }
+
 
         #region Random Names
 
@@ -219,6 +251,8 @@ namespace rpgCharacters.Models.Characters
             return randomName;
         }
     #endregion
+
+
 
 }
 }

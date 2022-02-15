@@ -3,6 +3,7 @@ using rpgCharacters.Models.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -67,6 +68,11 @@ namespace rpgCharacters.Models.Characters
 
         #endregion
 
+        public void CharacterLvlUp()
+        {
+            base.CharacterLvlUp(1, 1, 5);
+        }
+
         #region Equip weapon
         /// <summary>
         /// This method will try to equip a weapon if the weapon is allowed by this class.
@@ -78,7 +84,7 @@ namespace rpgCharacters.Models.Characters
             try
             {              
                 if (CheckIfWeaponIsAllowed())
-                    base.SetWeaponIntoEquipments(weapon, mage.GetPrimaryAttributes().Strength);
+                    base.SetWeaponIntoEquipments(weapon, mage.GetPrimaryAttributes().Intelligence);
                 else
                     throw new InvalidWeaponException();
             }
@@ -98,7 +104,6 @@ namespace rpgCharacters.Models.Characters
             }
 
             #endregion
-
         }
         #endregion
 
@@ -108,7 +113,7 @@ namespace rpgCharacters.Models.Characters
             try
             {
                 if (CheckIfArmorIsAllowed())
-                    base.SetEquipments(armor.GetItemSlot(), armor.GetItemName());
+                    base.SetArmorIntoEquipments(armor.GetItemSlot(), armor.GetItemName());
                 else
                     throw new InvalidArmorException();
             }

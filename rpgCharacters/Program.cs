@@ -17,27 +17,19 @@ namespace rpgCharacters
             //TestMageData.testMage1.EquipWeapon(TestMageData.testMage1, TestWeaponData.GetTestStaff());
             //TestMageData.testMage1.EquipWeapon(TestMageData.testMage1, TestWeaponData.GetTestBow());
 
+            ////Ok
+            //TestMageData.testMage1.EquipArmor(TestMageData.testMage1, TestArmorData.GetClothArmor());
+            //TestMageData.testMage1.EquipWeapon(TestMageData.testMage1, TestWeaponData.GetTestStaff());
 
-            //FORTSÄTT MED ATT LÄGGA TILL ARMOR. KOLLA OM DU KAN LÄGGA TILL TVÅ LEGS, EQUIPMENT LISTAN BÖR INTE TILLÅTA DETTA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            ////NOK
+            //TestMageData.testMage1.EquipArmor(TestMageData.testMage1, TestArmorData.GetPlateArmor());
+            //TestMageData.testMage1.EquipWeapon(TestMageData.testMage1, TestWeaponData.GetTestAxe());
+            Mage mage1 = new Mage();
+            Mage mage = new Mage();
+            //mage.EquipWeapon(mage, TestWeaponData.GetTestStaff());
+            //mage.EquipArmor(mage, TestArmorData.GetClothArmor());
 
-
-            //Ok
-            TestMageData.testMage1.EquipArmor(TestMageData.testMage1, TestArmorData.GetClothArmor());
-            TestMageData.testMage1.EquipWeapon(TestMageData.testMage1, TestWeaponData.GetTestStaff());
-
-            //NOK
-            TestMageData.testMage1.EquipArmor(TestMageData.testMage1, TestArmorData.GetPlateArmor());
-            TestMageData.testMage1.EquipWeapon(TestMageData.testMage1, TestWeaponData.GetTestAxe());
-
-            Mage mage = new Mage(1, 1, 1);
-
-            mage.EquipWeapon(mage, TestWeaponData.GetTestStaff());
-
-            Console.WriteLine(mage.GetName());
-
-           double damage =  mage.GetCharacterDamage();
-
-           Console.WriteLine(damage);
+            Console.WriteLine(mage);
 
 
 
