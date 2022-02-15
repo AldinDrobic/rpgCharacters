@@ -21,7 +21,7 @@ namespace rpgCharacters.Models.Characters
         /// </summary>
         public Rouge()
         {
-            base.SetPrimaryAttributes(1, 1, 8);
+            base.SetPrimaryAttributes(2, 6, 1);
             base.SetCharacterType(CharacterTypes.Rouge);
             base.SetMainAttribute(base.GetPrimaryAttributes().Dexterity);
             AddAllowedArmorsWeapons();
@@ -48,7 +48,7 @@ namespace rpgCharacters.Models.Characters
         /// </summary>
         public void CharacterLvlUp()
         {
-            base.CharacterLvlUp(1, 1, 5);
+            base.CharacterLvlUp(1, 4, 1);
         }
         #endregion
 
@@ -58,12 +58,12 @@ namespace rpgCharacters.Models.Characters
         /// </summary>
         /// <param name="Rouge">This is the created character</param>
         /// <param name="weapon">This is the weapon that the character is trying to equip</param>
-        public void EquipWeapon(Mage Rouge, Weapon weapon)
+        public void EquipWeapon(Rouge Rouge, Weapon weapon)
         {
             try
             {
                 if (CheckIfWeaponIsAllowed())
-                    base.SetWeaponIntoEquipments(weapon, Rouge.GetPrimaryAttributes().Intelligence);
+                    base.SetWeaponIntoEquipments(weapon, Rouge.GetPrimaryAttributes().Dexterity);
                 else
                     throw new InvalidWeaponException();
             }
@@ -87,7 +87,10 @@ namespace rpgCharacters.Models.Characters
         #endregion
 
         #region Equip Armor
-        public void EquipArmor(Mage rouge, Armor armor)
+        /// <summary>
+        /// This method will try to equip a armor if it is allowed by the class
+        /// </summary>
+        public void EquipArmor(Rouge rouge, Armor armor)
         {
             try
             {

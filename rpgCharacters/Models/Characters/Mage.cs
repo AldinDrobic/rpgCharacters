@@ -13,11 +13,9 @@ namespace rpgCharacters.Models.Characters
         #endregion
 
         #region Constructors
-
         /// <summary>
         /// Constructor to create a standard mage object
         /// </summary>
-        /// // <param name="mainAttribute">Characters main attribute which is used to increase damage</param>
         public Mage()
         {
             base.SetPrimaryAttributes(1, 1, 8);
@@ -89,6 +87,9 @@ namespace rpgCharacters.Models.Characters
         #endregion
 
         #region Equip Armor
+        /// <summary>
+        /// This method will try to equip a armor if it is allowed by the class
+        /// </summary>
         public void EquipArmor(Mage mage, Armor armor)
         {
             try

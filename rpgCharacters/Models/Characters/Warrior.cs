@@ -1,11 +1,14 @@
-﻿using rpgCharacters.Models.Exceptions;
-using rpgCharacters.Models.Items;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using rpgCharacters.Models.Exceptions;
+using rpgCharacters.Models.Items;
 
 namespace rpgCharacters.Models.Characters
 {
-    public class Ranger: Character
+    public class Warrior: Character
     {
         #region Private class variables
         private List<ArmorType> _armorsAllowed = new List<ArmorType>();
@@ -14,54 +17,54 @@ namespace rpgCharacters.Models.Characters
 
         #region Constructors
         /// <summary>
-        /// Constructor for instantiating new objects
+        /// Constructor to create a standard warrior object
         /// </summary>
-        public Ranger()
+        public Warrior()
         {
-            base.SetPrimaryAttributes(1, 7, 1);
-            base.SetCharacterType(CharacterTypes.Ranger);
-            base.SetMainAttribute(base.GetPrimaryAttributes().Dexterity);
+            base.SetPrimaryAttributes(5, 2, 1);
+            base.SetCharacterType(CharacterTypes.Warrior);
+            base.SetMainAttribute(base.GetPrimaryAttributes().Strength);
             AddAllowedArmorsWeapons();
         }
         #endregion
 
         #region Allowed armors & weapons
+
         /// <summary>
-        /// Will fill list with allowed armors and weapon that rangers can equip
+        /// Will fill list with allowed armors and weapon that warrior can equip
         /// </summary>
         private void AddAllowedArmorsWeapons()
         {
-            _armorsAllowed.Add(ArmorType.LEATHER);
             _armorsAllowed.Add(ArmorType.MAIL);
-            _weaponsAllowed.Add(WeaponTypes.BOW);
+            _armorsAllowed.Add(ArmorType.PLATE);
+            _weaponsAllowed.Add(WeaponTypes.AXE);
+            _weaponsAllowed.Add(WeaponTypes.HAMMER);
+            _weaponsAllowed.Add(WeaponTypes.SWORD);
         }
-
-
         #endregion
 
         #region Lvl up character
         /// <summary>
-        /// Used to increase character lvl
+        /// Used to increase characters lvl
         /// </summary>
         public void CharacterLvlUp()
         {
-            base.CharacterLvlUp(1, 5, 1);
+            base.CharacterLvlUp(3, 2, 1);
         }
-
         #endregion
 
         #region Equip weapon
         /// <summary>
         /// This method will try to equip a weapon if the weapon is allowed by this class.
         /// </summary>
-        /// <param name="ranger">This is the created character</param>
+        /// <param name="warrior">This is the created character</param>
         /// <param name="weapon">This is the weapon that the character is trying to equip</param>
-        public void EquipWeapon(Ranger ranger, Weapon weapon)
+        public void EquipWeapon(Warrior warrior, Weapon weapon)
         {
             try
             {
                 if (CheckIfWeaponIsAllowed())
-                    base.SetWeaponIntoEquipments(weapon, ranger.GetPrimaryAttributes().Dexterity);
+                    base.SetWeaponIntoEquipments(weapon, warrior.GetPrimaryAttributes().Strength);
                 else
                     throw new InvalidWeaponException();
             }
@@ -74,7 +77,7 @@ namespace rpgCharacters.Models.Characters
             bool CheckIfWeaponIsAllowed()
             {
                 //Search for the weapon in the Mages list of allowed weapons             
-                if (_weaponsAllowed.Contains(weapon.GetWeaponType()) && weapon.GetRequiredLvl() <= ranger.GetLvl())
+                if (_weaponsAllowed.Contains(weapon.GetWeaponType()) && weapon.GetRequiredLvl() <= warrior.GetLvl())
                     return true;
                 else
                     return false;
@@ -88,7 +91,7 @@ namespace rpgCharacters.Models.Characters
         /// <summary>
         /// This method will try to equip a armor if it is allowed by the class
         /// </summary>
-        public void EquipArmor(Ranger ranger, Armor armor)
+        public void EquipArmor(Warrior warrior, Armor armor)
         {
             try
             {
@@ -106,12 +109,13 @@ namespace rpgCharacters.Models.Characters
             bool CheckIfArmorIsAllowed()
             {
                 //Search for the armor in the Mages list of allowed armors 
-                if (_armorsAllowed.Contains(armor.GetArmorType()) && armor.GetRequiredLvl() <= ranger.GetLvl())
+                if (_armorsAllowed.Contains(armor.GetArmorType()) && armor.GetRequiredLvl() <= warrior.GetLvl())
                     return true;
                 else
                     return false;
             }
             #endregion
+
         }
         #endregion
     }
