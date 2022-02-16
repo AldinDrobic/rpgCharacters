@@ -62,7 +62,7 @@ namespace rpgCharacters.Models.Characters
             try
             {
                 if (CheckIfWeaponIsAllowed())
-                    equippedWeaponMessage = base.SetWeaponIntoEquipments(weapon, ranger.GetPrimaryAttributes().Dexterity);
+                    equippedWeaponMessage = base.SetWeaponIntoEquipments(weapon);
                 else
                     throw new InvalidWeaponException();
             }

@@ -24,30 +24,5 @@ namespace rpgCharacters.Models
             this.Dexterity = dexterity;
             this.Intelligence = intelligence;
         }
-
-        /// <summary>
-        /// Will increase Strength with what ever value is passed in the parameter.
-        /// </summary>
-        /// <param name="increaseValue"></param>
-        public void IncreaseStrength(int increaseValue)
-        {
-            this.Strength += increaseValue;
-        }
-        /// <summary>
-        /// Will increase Strength with what ever value is passed in the parameter.
-        /// </summary>
-        /// <param name="increaseValue"></param>
-        public void IncreaseDexterity(int increaseValue)
-        {
-            this.Dexterity += increaseValue;
-        }
-        /// <summary>
-        /// Will increase Strength with what ever value is passed in the parameter.
-        /// </summary>
-        /// <param name="increaseValue"></param>
-        public void IncreaseIntelligence(int increaseValue)
-        {
-            this.Intelligence += increaseValue;
-        }
     }
 }

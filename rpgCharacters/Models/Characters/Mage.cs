@@ -64,7 +64,7 @@ namespace rpgCharacters.Models.Characters
             try
             {              
                 if (CheckIfWeaponIsAllowed())
-                    equippedWeaponMessage = base.SetWeaponIntoEquipments(weapon, mage.GetPrimaryAttributes().Intelligence);
+                    equippedWeaponMessage = base.SetWeaponIntoEquipments(weapon);
                 else
                     throw new InvalidWeaponException();
             }

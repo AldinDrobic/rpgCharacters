@@ -154,7 +154,7 @@ namespace rpgCharacters.Models.Characters
         /// </summary>
         /// <param name="weapon">The weapon character is trying to equip</param>
         /// <param name="primaryAttribute">Value which is used for increasing characters damage</param>
-        public string SetWeaponIntoEquipments(Weapon weapon, double primaryAttribute)
+        public string SetWeaponIntoEquipments(Weapon weapon)
         {
             try
             {
@@ -242,7 +242,7 @@ namespace rpgCharacters.Models.Characters
         /// <param name="strength">Characters strength</param>
         /// <param name="dexterity">Characters dexterity</param>
         /// <param name="intelligence">Characters intelligence</param>
-        public void CharacterLvlUp(int strength, int dexterity, int intelligence)
+        public string CharacterLvlUp(int strength, int dexterity, int intelligence)
         {
             this._primaryAttributes.Strength += strength;
             this._primaryAttributes.Dexterity += dexterity;
@@ -250,6 +250,7 @@ namespace rpgCharacters.Models.Characters
             this._mainAttribute = CheckForCharacterClass();
             this._lvl++;
             SetCharacterDamage();
+            return $"Your character successfully leveled up from level: {this._lvl-1} to level: {this._lvl}";
         }
         /// <summary>
         /// Method used to deal damage with character

@@ -50,9 +50,21 @@ namespace rpgCharacters
             Armor mailArmor = new Armor("Mail armor", 1, ItemSlot.BODY, ArmorType.MAIL);
             Armor clothArmor = new Armor("Cloth armor", 1, ItemSlot.BODY, ArmorType.CLOTH);
 
-            TestDataCharacters.warrior.EquipArmor(TestDataCharacters.warrior, mailArmor);
-            TestDataCharacters.warrior.EquipWeapon(TestDataCharacters.warrior, longBow);
-            TestDataCharacters.warrior.EquipArmor(TestDataCharacters.warrior, clothArmor);
+            Warrior warrior = new Warrior();
+
+
+            Console.WriteLine(warrior.EquipWeapon(fireAxe));
+            warrior.EquipWeapon(fireAxe);
+
+            Console.WriteLine(warrior.GetCharacterDamage());
+
+            warrior.DealDamage();
+
+            Console.WriteLine(warrior.CharacterLvlUp());
+            
+
+            warrior.DealDamage();
+
 
 
 

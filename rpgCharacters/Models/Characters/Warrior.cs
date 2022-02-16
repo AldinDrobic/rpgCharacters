@@ -15,7 +15,7 @@ namespace rpgCharacters.Models.Characters
         private List<WeaponTypes> _weaponsAllowed = new List<WeaponTypes>();
         #endregion
 
-        #region Constructors
+        #region Constructor
         /// <summary>
         /// Constructor to create a standard warrior object
         /// </summary>
@@ -47,9 +47,9 @@ namespace rpgCharacters.Models.Characters
         /// <summary>
         /// Used to increase characters lvl
         /// </summary>
-        public void CharacterLvlUp()
+        public string CharacterLvlUp()
         {
-            base.CharacterLvlUp(3, 2, 1);
+            return base.CharacterLvlUp(3, 2, 1);
         }
         #endregion
 
@@ -59,13 +59,13 @@ namespace rpgCharacters.Models.Characters
         /// </summary>
         /// <param name="warrior">This is the created character</param>
         /// <param name="weapon">This is the weapon that the character is trying to equip</param>
-        public string EquipWeapon(Warrior warrior, Weapon weapon)
+        public string EquipWeapon(Weapon weapon)
         {
             string equippedWeaponMessage = "";
             try
             {
                 if (CheckIfWeaponIsAllowed())
-                    equippedWeaponMessage = base.SetWeaponIntoEquipments(weapon, warrior.GetPrimaryAttributes().Strength);
+                    equippedWeaponMessage = base.SetWeaponIntoEquipments(weapon);
                 else
                     throw new InvalidWeaponException();
             }
@@ -79,7 +79,7 @@ namespace rpgCharacters.Models.Characters
             bool CheckIfWeaponIsAllowed()
             {
                 //Search for the weapon in the Mages list of allowed weapons             
-                if (_weaponsAllowed.Contains(weapon.GetWeaponType()) && weapon.GetRequiredLvl() <= warrior.GetLvl())
+                if (_weaponsAllowed.Contains(weapon.GetWeaponType()) && weapon.GetRequiredLvl() <= base.GetLvl())
                     return true;
                 else
                     return false;
