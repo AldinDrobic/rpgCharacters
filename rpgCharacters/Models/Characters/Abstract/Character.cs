@@ -231,7 +231,7 @@ namespace rpgCharacters.Models.Characters
             if (this._weapon == null)
                 this._damage = 1;
             else
-                this._damage = this._weapon.GetDPS() * (this._mainAttribute + _totalAttributes / 100);
+                this._damage = this._weapon.GetDPS() * (this._mainAttribute + (_totalAttributes / 100));
         }
         #endregion
 

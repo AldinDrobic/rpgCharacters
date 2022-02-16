@@ -46,9 +46,9 @@ namespace rpgCharacters
             Weapon longBow = new Weapon("Long bow", 1, ItemSlot.WEAPON, WeaponTypes.BOW, 
                 new WeaponAttributes(1, 1));
 
-            Armor plateArmor = new Armor("Plate armor", 2, ItemSlot.BODY, ArmorType.PLATE);
-            Armor mailArmor = new Armor("Mail armor", 1, ItemSlot.BODY, ArmorType.MAIL);
-            Armor clothArmor = new Armor("Cloth armor", 1, ItemSlot.BODY, ArmorType.CLOTH);
+            Armor plateArmor = new Armor("Plate armor", 2, ItemSlot.BODY, ArmorType.PLATE, new ArmorAttributes(1));
+            Armor mailArmor = new Armor("Mail armor", 1, ItemSlot.BODY, ArmorType.MAIL, new ArmorAttributes(1));
+            Armor clothArmor = new Armor("Cloth armor", 1, ItemSlot.BODY, ArmorType.CLOTH, new ArmorAttributes(1));
 
             Warrior warrior = new Warrior();
 
