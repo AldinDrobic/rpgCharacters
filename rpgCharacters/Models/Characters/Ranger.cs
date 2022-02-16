@@ -56,7 +56,7 @@ namespace rpgCharacters.Models.Characters
         /// </summary>
         /// <param name="ranger">This is the created character</param>
         /// <param name="weapon">This is the weapon that the character is trying to equip</param>
-        public string EquipWeapon(Ranger ranger, Weapon weapon)
+        public string EquipWeapon(Weapon weapon)
         {
             string equippedWeaponMessage = "";
             try
@@ -75,7 +75,7 @@ namespace rpgCharacters.Models.Characters
             bool CheckIfWeaponIsAllowed()
             {
                 //Search for the weapon in the Mages list of allowed weapons             
-                if (_weaponsAllowed.Contains(weapon.GetWeaponType()) && weapon.GetRequiredLvl() <= ranger.GetLvl())
+                if (_weaponsAllowed.Contains(weapon.GetWeaponType()) && weapon.GetRequiredLvl() <= base.GetLvl())
                     return true;
                 else
                     return false;
@@ -89,13 +89,13 @@ namespace rpgCharacters.Models.Characters
         /// <summary>
         /// This method will try to equip a armor if it is allowed by the class
         /// </summary>
-        public string EquipArmor(Ranger ranger, Armor armor)
+        public string EquipArmor(Armor armor)
         {
             string equippedArmorMessage = "";
             try
             {
                 if (CheckIfArmorIsAllowed())
-                    equippedArmorMessage = base.SetArmorIntoEquipments(armor.GetItemSlot(), armor.GetItemName());
+                    equippedArmorMessage = base.SetArmorIntoEquipments(armor);
                 else
                     throw new InvalidArmorException();
             }
@@ -108,7 +108,7 @@ namespace rpgCharacters.Models.Characters
             bool CheckIfArmorIsAllowed()
             {
                 //Search for the armor in the Mages list of allowed armors 
-                if (_armorsAllowed.Contains(armor.GetArmorType()) && armor.GetRequiredLvl() <= ranger.GetLvl())
+                if (_armorsAllowed.Contains(armor.GetArmorType()) && armor.GetRequiredLvl() <= base.GetLvl())
                     return true;
                 else
                     return false;

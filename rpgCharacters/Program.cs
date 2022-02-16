@@ -52,18 +52,9 @@ namespace rpgCharacters
 
             Warrior warrior = new Warrior();
 
-
-            Console.WriteLine(warrior.EquipWeapon(fireAxe));
-            warrior.EquipWeapon(fireAxe);
-
-            Console.WriteLine(warrior.GetCharacterDamage());
-
-            warrior.DealDamage();
-
-            Console.WriteLine(warrior.CharacterLvlUp());
-            
-
-            warrior.DealDamage();
+            warrior.EquipArmor(plateArmor);
+            warrior.EquipArmor(mailArmor);
+            Console.WriteLine(warrior.EquipArmor(mailArmor));
 
 
 

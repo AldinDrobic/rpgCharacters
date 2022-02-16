@@ -93,13 +93,13 @@ namespace rpgCharacters.Models.Characters
         /// <summary>
         /// This method will try to equip a armor if it is allowed by the class
         /// </summary>
-        public string EquipArmor(Warrior warrior, Armor armor)
+        public string EquipArmor(Armor armor)
         {
             string equippedArmorMessage = "";
             try
             {
                 if (CheckIfArmorIsAllowed())
-                    equippedArmorMessage = base.SetArmorIntoEquipments(armor.GetItemSlot(), armor.GetItemName());
+                    equippedArmorMessage = base.SetArmorIntoEquipments(armor);
                 else
                     throw new InvalidArmorException();
             }
@@ -112,7 +112,7 @@ namespace rpgCharacters.Models.Characters
             bool CheckIfArmorIsAllowed()
             {
                 //Search for the armor in the Mages list of allowed armors 
-                if (_armorsAllowed.Contains(armor.GetArmorType()) && armor.GetRequiredLvl() <= warrior.GetLvl())
+                if (this._armorsAllowed.Contains(armor.GetArmorType()) && armor.GetRequiredLvl() <= base.GetLvl())
                     return true;
                 else
                     return false;

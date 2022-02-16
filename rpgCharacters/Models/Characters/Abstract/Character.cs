@@ -112,26 +112,26 @@ namespace rpgCharacters.Models.Characters
         /// </summary>
         /// <param _name="itemSlot">The slot where the item is being putted</param>
         /// <param _name="itemName">The _name of the item</param>
-        public string SetArmorIntoEquipments(ItemSlot itemSlot, string itemName)
+        public string SetArmorIntoEquipments(Armor armor)
         {
             try
             {
                 //If the item slot is already taken, don't equip the item.
-                if (_equipments.Keys.Contains(itemSlot))
+                if (_equipments.Keys.Contains(armor.GetItemSlot()))
                 {
-                    Console.WriteLine($"You already have a {itemSlot} equipped, " +
+                    Console.WriteLine($"You already have a {armor.GetItemSlot()} equipped, " +
                                       $"do you want to replace it? (y/n)");
                     if (Console.ReadLine() == "y")
                     {
                         //Equip armor
-                        this._equipments[itemSlot] = itemName;
-                        return _armorEquipped(itemName);
+                        this._equipments[armor.GetItemSlot()] = armor.GetItemName();
+                        return _armorEquipped(armor.GetItemName());
                     }
                 }
                 else
                 {
-                    this._equipments.Add(itemSlot, itemName);
-                    return _armorEquipped(itemName);
+                    this._equipments.Add(armor.GetItemSlot(), armor.GetItemName());
+                    return _armorEquipped(armor.GetItemName());
                 }
             }
             catch (InvalidItemException ex)

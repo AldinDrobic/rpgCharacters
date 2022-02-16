@@ -8,14 +8,15 @@ namespace rpgCharacters.Models.Attributes
 {
     public class ArmorAttributes
     {
-        public double Damage{ get; set; }
+        public double Defence{ get; set; }
+
         /// <summary>
         /// Constructor to increase character power
         /// </summary>
-        /// <param name="damage">Will increase character power</param>
-        public ArmorAttributes(double damage)
+        /// <param name="defence">Will increase character power</param>
+        public ArmorAttributes(double defence)
         {
-            this.Damage = damage;
+            this.Defence = defence;
         }
     }
 }

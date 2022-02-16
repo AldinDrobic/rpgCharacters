@@ -4,15 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using rpgCharacters.Models.Attributes;
 
 namespace rpgCharacters.TestData.TestItems
 {
     public static class TestArmorData
     {
         #region Cloth set
-        private static Armor clothHelmet = new Armor("Cloth helmet", 1, ItemSlot.HEAD, ArmorType.CLOTH);
-        private static Armor clothArmor = new Armor("Cloth armor", 1, ItemSlot.BODY, ArmorType.CLOTH);
-        private static Armor clothLegs = new Armor("Cloth legs", 1, ItemSlot.LEGS, ArmorType.CLOTH);
+        private static Armor clothHelmet = new Armor("Cloth helmet", 1, ItemSlot.HEAD, ArmorType.CLOTH, new ArmorAttributes(2));
+        private static Armor clothArmor = new Armor("Cloth armor", 1, ItemSlot.BODY, ArmorType.CLOTH, new ArmorAttributes(3));
+        private static Armor clothLegs = new Armor("Cloth legs", 1, ItemSlot.LEGS, ArmorType.CLOTH, new ArmorAttributes(4));
 
         #region Getters
         public static Armor GetClotHelmet()
@@ -33,9 +34,9 @@ namespace rpgCharacters.TestData.TestItems
         #endregion
 
         #region Leather set
-        private static Armor leatherHelmet = new Armor("Leather helmet", 1, ItemSlot.HEAD, ArmorType.LEATHER);
-        private static Armor leatherArmor = new Armor("Leather armor", 1, ItemSlot.BODY, ArmorType.LEATHER);
-        private static Armor leatherLegs = new Armor("Leather legs", 1, ItemSlot.LEGS, ArmorType.LEATHER);
+        private static Armor leatherHelmet = new Armor("Leather helmet", 1, ItemSlot.HEAD, ArmorType.LEATHER, new ArmorAttributes(2));
+        private static Armor leatherArmor = new Armor("Leather armor", 1, ItemSlot.BODY, ArmorType.LEATHER, new ArmorAttributes(1));
+        private static Armor leatherLegs = new Armor("Leather legs", 1, ItemSlot.LEGS, ArmorType.LEATHER, new ArmorAttributes(4));
 
         #region Getters
         public static Armor GetLeatherHelmet()
@@ -54,9 +55,9 @@ namespace rpgCharacters.TestData.TestItems
         #endregion
 
         #region Mail set
-        private static Armor mailHelmet = new Armor("Mail helmet", 1, ItemSlot.HEAD, ArmorType.MAIL);
-        private static Armor mailArmor = new Armor("Mail armor", 1, ItemSlot.BODY, ArmorType.MAIL);
-        private static Armor mailLegs = new Armor("Mail legs", 1, ItemSlot.LEGS, ArmorType.MAIL);
+        private static Armor mailHelmet = new Armor("Mail helmet", 1, ItemSlot.HEAD, ArmorType.MAIL, new ArmorAttributes(4));
+        private static Armor mailArmor = new Armor("Mail armor", 1, ItemSlot.BODY, ArmorType.MAIL, new ArmorAttributes(2));
+        private static Armor mailLegs = new Armor("Mail legs", 1, ItemSlot.LEGS, ArmorType.MAIL, new ArmorAttributes(2));
 
         #region Getters
         public static Armor GetMailHelmet()
@@ -75,9 +76,9 @@ namespace rpgCharacters.TestData.TestItems
         #endregion
 
         #region Plate set
-        private static Armor plateHelmet = new Armor("Plate helmet", 1, ItemSlot.HEAD, ArmorType.PLATE);
-        private static Armor plateArmor = new Armor("Plate armor", 1, ItemSlot.BODY, ArmorType.PLATE);
-        private static Armor plateLegs = new Armor("Plate legs", 1, ItemSlot.LEGS, ArmorType.PLATE);
+        private static Armor plateHelmet = new Armor("Plate helmet", 1, ItemSlot.HEAD, ArmorType.PLATE, new ArmorAttributes(2));
+        private static Armor plateArmor = new Armor("Plate armor", 1, ItemSlot.BODY, ArmorType.PLATE, new ArmorAttributes(3));
+        private static Armor plateLegs = new Armor("Plate legs", 1, ItemSlot.LEGS, ArmorType.PLATE, new ArmorAttributes(2));
 
         #region Getters
         public static Armor GetPlateHelmet()
