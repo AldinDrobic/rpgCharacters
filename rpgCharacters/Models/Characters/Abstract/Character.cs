@@ -15,7 +15,7 @@ namespace rpgCharacters.Models.Characters.Abstract
         private Enum _characterType;
         private PrimaryAttributes _primaryAttributes;
         private int _mainAttribute;
-        private int _addedArmorAttributes;
+        private double _addedArmorAttributes;
         private double _totalAttributes;
         private double _damage = 1;
         private Weapon _weapon;
@@ -100,7 +100,8 @@ namespace rpgCharacters.Models.Characters.Abstract
             {
                 this._damage = 1;
             }
-            return this._damage;
+
+            return Math.Round(this._damage, 1);
         }
         /// <summary>
         /// Return the equipped weapon
@@ -207,7 +208,7 @@ namespace rpgCharacters.Models.Characters.Abstract
             this._primaryAttributes = new PrimaryAttributes(strength, dexterity, intelligence);
 
             //Set total attributes
-            this._totalAttributes = this._primaryAttributes.Strength + 
+            this._totalAttributes = this._primaryAttributes.Strength +
                                     this._primaryAttributes.Dexterity +
                                     this._primaryAttributes.Intelligence;
         }
@@ -233,6 +234,7 @@ namespace rpgCharacters.Models.Characters.Abstract
         /// <param name="armor">The armor which character has equipped</param>
         private void SetArmorAttributes(Armor armor)
         {
+            this._addedArmorAttributes = 0;
             switch (armor.GetItemSlot())
             {
                 case ItemSlot.HEAD:
@@ -251,7 +253,7 @@ namespace rpgCharacters.Models.Characters.Abstract
             {
                 this._addedArmorAttributes += VARIABLE.Value;
             }
-
+            SetCharacterDamage();
         }
         /// <summary>
         /// Set damage of the character
@@ -261,7 +263,7 @@ namespace rpgCharacters.Models.Characters.Abstract
             if (this._weapon == null)
                 this._damage = 1;
             else
-                this._damage = this._weapon.GetDPS() * (this._addedArmorAttributes + (this._mainAttribute + (_totalAttributes / 100)));
+                this._damage = this._weapon.GetDPS() * (_addedArmorAttributes + (this._mainAttribute + (_totalAttributes / 100)));
         }
         #endregion
 
@@ -336,7 +338,7 @@ namespace rpgCharacters.Models.Characters.Abstract
                    $"Strength: {this._primaryAttributes.Strength}\n" +
                    $"Dexterity: {this._primaryAttributes.Dexterity}\n" +
                    $"Intelligence: {this._primaryAttributes.Intelligence}\n" +
-                   $"Damage: {this._damage}\n";
+                   $"Damage: {Math.Round(this._damage, 1)}\n";
         }
         #endregion
 
