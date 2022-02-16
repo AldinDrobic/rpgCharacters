@@ -15,62 +15,7 @@ namespace rpgCharacters
     {
         static void Main(string[] args)
         {
-
-            ////Mage
-            //TestDataCharacters.PrintMageData();
-            //TestDataCharacters.IncreaseMageLvl();
-            //TestDataCharacters.PrintMageData();
-
-
-            ////Ranger
-            //TestDataCharacters.PrintRangerData();
-            //TestDataCharacters.IncreaseRangerLvl();
-            //TestDataCharacters.PrintRangerData();
-
-
-            ////Rouge
-            //TestDataCharacters.PrintRougeData();
-            //TestDataCharacters.IncreaseRougeLvl();
-            //TestDataCharacters.PrintRougeData();
-
-
-            ////Warrior
-            //TestDataCharacters.PrintWarriorData();
-            //TestDataCharacters.IncreaseWarriorLvl();
-            //TestDataCharacters.PrintWarriorData();
-
-            Weapon fireAxe = new Weapon("Fire axe", 1, ItemSlot.WEAPON, WeaponTypes.AXE, 
-                new WeaponAttributes(20, 2));
-            Weapon regularAxe = new Weapon("Regular axe", 1, ItemSlot.WEAPON, WeaponTypes.AXE,
-                new WeaponAttributes(1, 1));
-            Weapon longBow = new Weapon("Long bow", 1, ItemSlot.WEAPON, WeaponTypes.BOW, 
-                new WeaponAttributes(1, 1));
-
-            Armor plateArmor = new Armor("Plate armor", 2, ItemSlot.BODY, ArmorType.PLATE, new ArmorAttributes(1));
-            Armor mailArmor = new Armor("Mail armor", 1, ItemSlot.BODY, ArmorType.MAIL, new ArmorAttributes(1));
-            Armor clothArmor = new Armor("Cloth armor", 1, ItemSlot.BODY, ArmorType.CLOTH, new ArmorAttributes(1));
-
-            Warrior warrior = new Warrior();
-
-
-
-            Console.WriteLine(warrior.EquipArmor(mailArmor));
-            Console.WriteLine(warrior.EquipWeapon(fireAxe));
-
-            Console.WriteLine(warrior);
-
-
-
-
-
-
-
-
-
-
-
-
-
+            
         }
     }
 }

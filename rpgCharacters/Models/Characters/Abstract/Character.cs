@@ -110,8 +110,6 @@ namespace rpgCharacters.Models.Characters.Abstract
         {
             return this._weapon;
         }
-
-
         #endregion
 
         #region Setters
