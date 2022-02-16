@@ -16,7 +16,7 @@ namespace rpgCharacters.Models.Items
             this._type = armorType;
         }
 
-        #region Return a armor type
+        #region Getters
         /// <summary>
         /// Returns type of armor
         /// </summary>
@@ -24,6 +24,14 @@ namespace rpgCharacters.Models.Items
         public ArmorType GetArmorType()
         {
             return this._type;
+        }
+        /// <summary>
+        /// Get armor attributes
+        /// </summary>
+        /// <returns></returns>
+        public ArmorAttributes GetArmorAttributes()
+        {
+            return this.GetArmorAttributes();
         }
         #endregion
 

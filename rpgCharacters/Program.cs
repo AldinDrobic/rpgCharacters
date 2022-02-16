@@ -57,6 +57,10 @@ namespace rpgCharacters
             Console.WriteLine(warrior.EquipArmor(mailArmor));
 
 
+         
+
+
+
 
 
 

@@ -2,12 +2,10 @@
 using rpgCharacters.Models.Items;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using rpgCharacters.Models.Attributes;
 
-namespace rpgCharacters.Models.Characters
+namespace rpgCharacters.Models.Characters.Abstract
 {
     public abstract class Character
     {
@@ -17,10 +15,20 @@ namespace rpgCharacters.Models.Characters
         private Enum _characterType;
         private PrimaryAttributes _primaryAttributes;
         private int _mainAttribute;
+        private int _addedArmorAttributes;
         private double _totalAttributes;
         private double _damage = 1;
         private Weapon _weapon;
         private Dictionary<ItemSlot, string> _equipments = new Dictionary<ItemSlot, string>();
+        /// <summary>
+        /// This is used to save attribute values for each armor that character is equipping
+        /// </summary>
+        private Dictionary<string, int> _armorAttributesSet = new Dictionary<string, int>()
+        {
+            {"HEAD", 0},
+            {"BODY", 0},
+            {"LEGS", 0}
+        };
         #endregion
 
         #region Constructor
@@ -188,7 +196,6 @@ namespace rpgCharacters.Models.Characters
             return null;
 
         }
-
         /// <summary>
         /// This method will set a characters primary attributes
         /// </summary>
@@ -216,22 +223,45 @@ namespace rpgCharacters.Models.Characters
         /// Set characters main attribute which is used to increase damage
         /// </summary>
         /// <param name="mainAttribute"></param>
-        public void SetMainAttribute(int mainAttribute)
+        private void SetMainAttribute(int mainAttribute)
         {
             this._mainAttribute = mainAttribute;
         }
+        /// <summary>
+        /// Set characters armor attribute which is used to increase damage
+        /// </summary>
+        /// <param name="armor">The armor which character has equipped</param>
+        private void SetArmorAttributes(Armor armor)
+        {
+            switch (armor.GetItemSlot())
+            {
+                case ItemSlot.HEAD:
+                    _armorAttributesSet["HEAD"] = armor.GetArmorAttributes().Defence;
+                    break;
+                case ItemSlot.BODY:
+                    _armorAttributesSet["BODY"] = armor.GetArmorAttributes().Defence;
+                    break;
+                case ItemSlot.LEGS:
+                    _armorAttributesSet["LEGS"] = armor.GetArmorAttributes().Defence;
+                    break;
+            }
 
+            // Calculate sum of all defence attributes and add it to addedArmorAttributes.
+            foreach (var VARIABLE in _armorAttributesSet)
+            {
+                this._addedArmorAttributes += VARIABLE.Value;
+            }
+
+        }
         /// <summary>
         /// Set damage of the character
         /// </summary>
-        /// <param name="weapon">The weapon that the character has equipped</param>
-        /// <param name="characterAttribute">The value that will increase damage</param>
         public void SetCharacterDamage()
         {
             if (this._weapon == null)
                 this._damage = 1;
             else
-                this._damage = this._weapon.GetDPS() * (this._mainAttribute + (_totalAttributes / 100));
+                this._damage = this._weapon.GetDPS() * (this._addedArmorAttributes + (this._mainAttribute + (_totalAttributes / 100)));
         }
         #endregion
 
