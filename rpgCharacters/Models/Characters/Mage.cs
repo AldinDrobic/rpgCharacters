@@ -39,10 +39,6 @@ namespace rpgCharacters.Models.Characters
         }
         #endregion
 
-        #region Getters
-
-        #endregion
-
         #region Lvl up character
         /// <summary>
         /// Used to increase characters lvl
