@@ -18,9 +18,12 @@ namespace ApplicationTests
         {
             // Arrange
             Warrior warrior = new Warrior();
-            Weapon axe = new Weapon("Axe", 2, ItemSlot.WEAPON, WeaponTypes.AXE, new WeaponAttributes(1, 1));
+            Mage mage = new Mage();
+            Ranger ranger = new Ranger();
+            Rouge rouge = new Rouge();
+            Weapon axe = new Weapon("Axe", 2, ItemSlot.WEAPON, WeaponTypes.DAGGER, new WeaponAttributes(1, 1));
             // Act & Assert
-            Assert.Throws<InvalidWeaponException>(() => warrior.EquipWeapon(axe));
+            Assert.Throws<InvalidWeaponException>(() => rouge.EquipWeapon(axe));
         }
         #endregion
 
@@ -31,9 +34,12 @@ namespace ApplicationTests
         {
             // Arrange
             Warrior warrior = new Warrior();
-            Armor armor = new Armor("Plate armor", 2, ItemSlot.BODY, ArmorType.PLATE, new ArmorAttributes(1));
+            Mage mage = new Mage();
+            Ranger ranger = new Ranger();
+            Rouge rouge = new Rouge();
+            Armor armor = new Armor("Plate armor", 2, ItemSlot.BODY, ArmorType.LEATHER, new ArmorAttributes(1));
             // Act & Assert
-            Assert.Throws<InvalidArmorException>(() => warrior.EquipArmor(armor));
+            Assert.Throws<InvalidArmorException>(() => rouge.EquipArmor(armor));
         }
 
         #endregion

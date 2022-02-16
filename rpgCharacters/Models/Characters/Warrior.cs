@@ -71,7 +71,7 @@ namespace rpgCharacters.Models.Characters
             bool IsWeaponAllowed()
             {
                 //Search for the weapon in the Warriors list of allowed weapons             
-                if (_weaponsAllowed.Contains(weapon.GetWeaponType()) && weapon.GetRequiredLvl() <= base.GetLvl())
+                if (this._weaponsAllowed.Contains(weapon.GetWeaponType()) && weapon.GetRequiredLvl() <= base.GetLvl())
                     return true;
                 else
                     return false;
@@ -89,22 +89,21 @@ namespace rpgCharacters.Models.Characters
         public string EquipArmor(Armor armor)
         {
             string equippedArmorMessage = "";
-            if (!IsfArmorAllowed())
+            if (!IsArmorAllowed())
                     throw new InvalidArmorException();
 
             equippedArmorMessage = base.SetArmorIntoEquipments(armor);
-            return equippedArmorMessage;
             #region Check if armor is allowed
-            bool IsfArmorAllowed()
+            bool IsArmorAllowed()
             {
-                //Search for the armor in the Mages list of allowed armors 
+                //Search for the armor in the Warriors list of allowed armors 
                 if (this._armorsAllowed.Contains(armor.GetArmorType()) && armor.GetRequiredLvl() <= base.GetLvl())
                     return true;
                 else
                     return false;
             }
             #endregion
-
+            return equippedArmorMessage;
         }
         #endregion
 

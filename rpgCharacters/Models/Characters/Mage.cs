@@ -62,29 +62,21 @@ namespace rpgCharacters.Models.Characters
         public string EquipWeapon(Weapon weapon)
         {
             string equippedWeaponMessage = "";
-            try
-            {              
-                if (CheckIfWeaponIsAllowed())
-                    equippedWeaponMessage = base.SetWeaponIntoEquipments(weapon);
-                else
-                    throw new InvalidWeaponException();
-            }
-            catch (InvalidWeaponException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return equippedWeaponMessage;
+            if (!IsWeaponAllowed())
+                throw new InvalidWeaponException("Your class is not allowed to equip this weapon");
+            
+            equippedWeaponMessage = base.SetWeaponIntoEquipments(weapon);
             #region Check if weapon is allowed
-            bool CheckIfWeaponIsAllowed()
+            bool IsWeaponAllowed()
             {
                 //Search for the weapon in the Mages list of allowed weapons             
                 if (_weaponsAllowed.Contains(weapon.GetWeaponType()) && weapon.GetRequiredLvl() <= base.GetLvl())              
                     return true;
                 else
-                return false;               
+                    return false;               
             }
-
             #endregion
+            return equippedWeaponMessage;
         }
         #endregion
 
@@ -95,29 +87,21 @@ namespace rpgCharacters.Models.Characters
         public string EquipArmor(Armor armor)
         {
             string equippedArmorMessage = "";
-            try
-            {
-                if (CheckIfArmorIsAllowed())
-                    equippedArmorMessage = base.SetArmorIntoEquipments(armor);
-                else
-                    throw new InvalidArmorException();
-            }
-            catch (InvalidArmorException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return equippedArmorMessage;
+            if (!IsArmorAllowed())
+                throw new InvalidArmorException();
+
+            equippedArmorMessage = base.SetArmorIntoEquipments(armor);
             #region Check if armor is allowed
-            bool CheckIfArmorIsAllowed()
+            bool IsArmorAllowed()
             {
                 //Search for the armor in the Mages list of allowed armors 
-                if (_armorsAllowed.Contains(armor.GetArmorType()) && armor.GetRequiredLvl() <= base.GetLvl())
+                if (this._armorsAllowed.Contains(armor.GetArmorType()) && armor.GetRequiredLvl() <= base.GetLvl())
                     return true;
                 else
                     return false;
             }
             #endregion
-
+            return equippedArmorMessage;
         }
         #endregion
     }
