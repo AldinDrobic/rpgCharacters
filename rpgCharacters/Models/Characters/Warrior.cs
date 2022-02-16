@@ -63,12 +63,12 @@ namespace rpgCharacters.Models.Characters
         public string EquipWeapon(Weapon weapon)
         {
             string equippedWeaponMessage = "";
-            if (!IsWeaponIsAllowed())
+            if (!IsWeaponAllowed())
                 throw new InvalidWeaponException("Your class is not allowed to equip this weapon");
             
             equippedWeaponMessage = base.SetWeaponIntoEquipments(weapon);
             #region Check if weapon is allowed
-            bool IsWeaponIsAllowed()
+            bool IsWeaponAllowed()
             {
                 //Search for the weapon in the Warriors list of allowed weapons             
                 if (_weaponsAllowed.Contains(weapon.GetWeaponType()) && weapon.GetRequiredLvl() <= base.GetLvl())
@@ -89,20 +89,13 @@ namespace rpgCharacters.Models.Characters
         public string EquipArmor(Armor armor)
         {
             string equippedArmorMessage = "";
-            try
-            {
-                if (CheckIfArmorIsAllowed())
-                    equippedArmorMessage = base.SetArmorIntoEquipments(armor);
-                else
+            if (!IsfArmorAllowed())
                     throw new InvalidArmorException();
-            }
-            catch (InvalidArmorException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+
+            equippedArmorMessage = base.SetArmorIntoEquipments(armor);
             return equippedArmorMessage;
             #region Check if armor is allowed
-            bool CheckIfArmorIsAllowed()
+            bool IsfArmorAllowed()
             {
                 //Search for the armor in the Mages list of allowed armors 
                 if (this._armorsAllowed.Contains(armor.GetArmorType()) && armor.GetRequiredLvl() <= base.GetLvl())

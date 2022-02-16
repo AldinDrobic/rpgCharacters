@@ -33,7 +33,7 @@ namespace ApplicationTests
             Warrior warrior = new Warrior();
             Armor armor = new Armor("Plate armor", 2, ItemSlot.BODY, ArmorType.PLATE, new ArmorAttributes(1));
             // Act & Assert
-            Assert.Throws<InvalidWeaponException>(() => warrior.EquipArmor(armor));
+            Assert.Throws<InvalidArmorException>(() => warrior.EquipArmor(armor));
         }
 
         #endregion
