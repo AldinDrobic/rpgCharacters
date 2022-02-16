@@ -2,6 +2,7 @@
 using rpgCharacters.Models.Items;
 using System;
 using System.Collections.Generic;
+using rpgCharacters.Models.Characters.Abstract;
 
 namespace rpgCharacters.Models.Characters
 {

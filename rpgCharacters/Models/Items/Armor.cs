@@ -9,11 +9,13 @@ namespace rpgCharacters.Models.Items
 {
     public class Armor: Item
     {
-        private ArmorType _type;
+        private ArmorType _armorType;
+        private ArmorAttributes _armorAttributes;
         public Armor(string itemName, int itemLvl, ItemSlot itemSlot, ArmorType armorType, ArmorAttributes armorAttributes)
             : base(itemName, itemLvl, itemSlot)
         {
-            this._type = armorType;
+            this._armorType = armorType;
+            this._armorAttributes = armorAttributes;
         }
 
         #region Getters
@@ -23,7 +25,7 @@ namespace rpgCharacters.Models.Items
         /// <returns></returns>
         public ArmorType GetArmorType()
         {
-            return this._type;
+            return this._armorType;
         }
         /// <summary>
         /// Get armor attributes
@@ -31,7 +33,7 @@ namespace rpgCharacters.Models.Items
         /// <returns></returns>
         public ArmorAttributes GetArmorAttributes()
         {
-            return this.GetArmorAttributes();
+            return this._armorAttributes;
         }
         #endregion
 

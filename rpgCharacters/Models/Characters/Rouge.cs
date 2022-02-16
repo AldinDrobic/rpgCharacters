@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using rpgCharacters.Models.Characters.Abstract;
 using rpgCharacters.Models.Exceptions;
 using rpgCharacters.Models.Items;
 

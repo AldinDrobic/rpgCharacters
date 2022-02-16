@@ -133,12 +133,14 @@ namespace rpgCharacters.Models.Characters.Abstract
                     {
                         //Equip armor
                         this._equipments[armor.GetItemSlot()] = armor.GetItemName();
+                        SetArmorAttributes(armor);
                         return _armorEquipped(armor.GetItemName());
                     }
                 }
                 else
                 {
                     this._equipments.Add(armor.GetItemSlot(), armor.GetItemName());
+                    SetArmorAttributes(armor);
                     return _armorEquipped(armor.GetItemName());
                 }
             }
@@ -223,7 +225,7 @@ namespace rpgCharacters.Models.Characters.Abstract
         /// Set characters main attribute which is used to increase damage
         /// </summary>
         /// <param name="mainAttribute"></param>
-        private void SetMainAttribute(int mainAttribute)
+        protected void SetMainAttribute(int mainAttribute)
         {
             this._mainAttribute = mainAttribute;
         }

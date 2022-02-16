@@ -52,12 +52,13 @@ namespace rpgCharacters
 
             Warrior warrior = new Warrior();
 
-            warrior.EquipArmor(plateArmor);
-            warrior.EquipArmor(mailArmor);
+
+
             Console.WriteLine(warrior.EquipArmor(mailArmor));
+            Console.WriteLine(warrior.EquipWeapon(fireAxe));
 
+            Console.WriteLine(warrior);
 
-         
 
 
 
