@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="rpgCharacters.Models.Characters.Abstract.Character" Collapsed="true">
+    <Position X="20.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAICZgAAIQBAUkAJMAAAqAIgAIYCAAEAAAAQQADIA=</HashCode>
+      <FileName>Models\Characters\Abstract\Character.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="rpgCharacters.Models.Characters.Mage" Collapsed="true">
+    <Position X="17.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAACAAAQABAAAAAAAAAAAAAAAAABAAAQ=</HashCode>
+      <FileName>Models\Characters\Mage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="rpgCharacters.Models.Characters.Ranger" Collapsed="true">
+    <Position X="19.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAACAAAQABAAAAAAAAAAAAAAAAABAAAQ=</HashCode>
+      <FileName>Models\Characters\Ranger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="rpgCharacters.Models.Characters.Rouge" Collapsed="true">
+    <Position X="22" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAACAAAQABAAAAAAAAAAAAAAAAABAAAQ=</HashCode>
+      <FileName>Models\Characters\Rouge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="rpgCharacters.Models.Characters.Warrior" Collapsed="true">
+    <Position X="24.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAACAAAQABAAAAAAAAAAAAAAAAABAAAQ=</HashCode>
+      <FileName>Models\Characters\Warrior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="rpgCharacters.Models.PrimaryAttributes" Collapsed="true">
+    <Position X="20.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Models\Attributes\PrimaryAttributes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="20.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="rpgCharacters.Models.Attributes.WeaponAttributes" Collapsed="true">
+    <Position X="16" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Attributes\WeaponAttributes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="rpgCharacters.Models.Attributes.ArmorAttributes" Collapsed="true">
+    <Position X="25.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\Attributes\ArmorAttributes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="rpgCharacters.Models.Items.Armor" Collapsed="true">
+    <Position X="26.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAEAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Models\Items\Armor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="rpgCharacters.Models.Item" Collapsed="true">
+    <Position X="23.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAABAABAAAAAAAQAAgAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Models\Items\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="rpgCharacters.Models.Weapon" Collapsed="true">
+    <Position X="20.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAACAAAAAAAAIAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Models\Items\Weapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="rpgCharacters.Models.Exceptions.InvalidArmorException" Collapsed="true">
+    <Position X="23.5" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\Exceptions\InvalidArmorException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Exception" Collapsed="true">
+    <Position X="23.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="rpgCharacters.Models.Exceptions.InvalidItemException" Collapsed="true">
+    <Position X="20.75" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\Exceptions\InvalidItemException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="rpgCharacters.Models.Exceptions.InvalidWeaponException" Collapsed="true">
+    <Position X="26" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\Exceptions\InvalidWeaponException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="rpgCharacters.Models.Items.ArmorType" Collapsed="true">
+    <Position X="26.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAIAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Items\ArmorType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="rpgCharacters.Models.Items.WeaponTypes" Collapsed="true">
+    <Position X="20.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAoICAAAAAAAAABAQAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Items\WeaponTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="rpgCharacters.Models.Items.ItemSlot" Collapsed="true">
+    <Position X="23.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAACAAAAAAAAAAAAAEAAAAAAAAAQA=</HashCode>
+      <FileName>Models\Items\ItemSlot.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
